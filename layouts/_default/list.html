@@ -49,8 +49,8 @@
               {{end}}
             </div>
             {{$startPage := ""}}
-            {{range $i, $p := .Page.Pages}}
-            {{if eq $p.Params.index 1}}
+            {{range $i, $p := .Pages}}
+            {{if eq $p.Weight 1}}
               {{$startPage = $p.Permalink}}
             {{end}}
             {{end}}
@@ -63,7 +63,7 @@
             <div class="title">{{.Page.Description}}</div>
 
             <div class="timeline">
-              {{range $i, $p := sort .Page.Pages "Params.index" "asc"}}
+              {{range $i, $p := sort .Page.Pages}}
               <div class="border">
                   <div class="dots">{{add $i 1}}</div>
                   <div class="content">

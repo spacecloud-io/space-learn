@@ -16,32 +16,23 @@
       line-height: 23px !important;
     }
     .tryitout {
-      margin-top: 16px;
       height: 30px;
     }
     .sidenav-btn-style {
       margin: 24px 0 24px 32px;
     }
-    .sidenav-btn {
-      background-color: #ff6600;
-      border-radius: 5px;
-      width: 60%;
-      font-size: 14px;
-      height: 35px;
-      line-height: 35px;
-      text-transform: none;
-    }
-    .community-style {
-      height: 30px;
-    }
-    .footer-icons {
-      justify-content: center;
-      margin-top: 16px;
-      position: relative;
-      right: 6vw;
-      a {
-        padding: 0 16px;
-      }
+    text-transform: none;
+  }
+  .community-style {
+    height: 30px;
+  }
+  .footer-icons {
+    justify-content: center;
+    margin-top: 16px;
+    position: relative;
+    right: 6vw;
+    a {
+      padding: 0 16px;
     }
   }
 }
