@@ -7,7 +7,7 @@
   padding: 32px 24px;
   z-index: 1;
   position: relative;
-  top: -30vh;
+  top: -35vh;
 
   .newsletter-title {
     font-size: 20px;
@@ -28,7 +28,7 @@
       flex: 0.8;
       .subscribe-email {
         margin: 0;
-        border-bottom: 0;
+        color: #fff;
       }
       .subscribe-email::placeholder {
         color: #bdbdbd;
@@ -36,10 +36,6 @@
       .subscribe-email.valid {
         border-bottom: 1px solid #9e9e9e !important;
         box-shadow: none !important;
-      }
-      .subscribe-email.valid:focus {
-        border-bottom: 1px solid #26a69a !important;
-        box-shadow: 0 1px 0 0 #26a69a !important;
       }
       .subscribe-email.error {
         border-bottom: 1px solid #f44336 !important;

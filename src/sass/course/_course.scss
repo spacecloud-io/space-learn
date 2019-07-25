@@ -27,13 +27,13 @@
 
     .left-wrapper {
       padding: 32px 40px;
-      #selected {
+      .selected {
         .dots {
           color: #ff6700;
-          border: 2px solid #ff6700;
+          border: 2px solid #ff6700 !important;
         }
         .point {
-          color: #ff6700;
+          color: #ff6700 !important;
         }
       }
       .timeline-border {
@@ -154,10 +154,10 @@
       font-weight: 600;
       padding: 32px;
       font-size: 16px;
-      #selected {
-        color: #ff6700;
+      .selected {
+        color: #ff6700 !important;
         a {
-          color: #ff6700;
+          color: #ff6700 !important;
         }
       }
       .on-this-page {

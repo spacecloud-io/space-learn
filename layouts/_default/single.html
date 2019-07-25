@@ -26,7 +26,7 @@
   {{partial "sidenav.html" . }}
   <div class="course">
     {{ partial "topbar-white.html" . }}
-    <div class="topbar-breadcrumb valign-wrapper hide-on-small-only">
+    <div class="topbar-breadcrumb valign-wrapper hide-on-med-and-down">
       <a href="#"><span>Front-end</span></a>
       <a href="#" class="material-icons">chevron_right</a>
       <a href="#"><span>React</span></a>
@@ -35,7 +35,7 @@
     <div style="background-color: #EBF4F5">
       <div class="row-top-padding">
         <div class="row">
-          <div class="col m3 l3 hide-on-small-only">
+          <div class="col l3 hide-on-med-and-down">
             <div class="left-wrapper">
               <div class="timeline-border">
                 <div class="dots">1</div>
@@ -53,7 +53,7 @@
                 <div class="dots">4</div>
                 <div class="point">Point 4</div>
               </div>
-              <div class="timeline-border" id="selected">
+              <div class="timeline-border selected">
                 <div class="dots">5</div>
                 <div class="point">Point 5</div>
               </div>
@@ -72,11 +72,11 @@
             </div>
           </div>
 
-          <div class="col m7 l7">
+          <div class="col l7">
             <div class="middle-padding">
               <div class="middle-wrapper">
                 <div style="box-shadow: 0 8px 10px -6px #EEE;">
-                  <div style="padding: 0 24px" class="hide-on-med-and-up">
+                  <div style="padding: 0 24px" class="hide-on-large-only">
                     <div class="breadcrumbs valign-wrapper">
                       <a href="#"><span>Front-end</span></a>
                       <a href="#" class="material-icons">chevron_right</a>
@@ -143,7 +143,7 @@
                 </div>
               </div> <br />
 
-              <div class="buttons hide-on-med-and-up">
+              <div class="buttons hide-on-large-only">
                 <div class="button1 valign-wrapper">
                   <a href="#" class="material-icons">chevron_left</a>
                 </div> <br />
@@ -155,9 +155,9 @@
                 </div>
               </div>
 
-              <div class="buttons-l hide-on-small-only">
+              <div class="buttons-l hide-on-med-and-down">
                 <a href="#">
-                  <div class="col m6 l6">
+                  <div class="col l6">
                     <div class="previous">
                       <div class="material-icons">chevron_left</div>
                       <div style="margin-left: 16px;">
@@ -169,7 +169,7 @@
                 </a>
 
                 <a href="#">
-                  <div class="col m6 l6">
+                  <div class="col l6">
                     <div class="next">
                       <div style="margin-right: 16px;">
                         <div class="topic">Next Topic</div>
@@ -183,14 +183,14 @@
             </div>
           </div>
 
-          <div class="col m2 l2 hide-on-small-only">
+          <div class="col l2 hide-on-med-and-down">
             <div class="right-wrapper">
               <div class="on-this-page">On this page:</div>
               <div class="valign-wrapper" style="margin-bottom: 12px; cursor: pointer;">
                 <a href="#" class="material-icons">chevron_right</a>
                 <span class="points">Point 1</span>
               </div>
-              <div class="valign-wrapper" id=selected style="margin-bottom: 12px; cursor: pointer;">
+              <div class="valign-wrapper selected" style="margin-bottom: 12px; cursor: pointer;">
                 <a href="#" class="material-icons">chevron_right</a>
                 <span class="points">Point 1</span>
               </div>
