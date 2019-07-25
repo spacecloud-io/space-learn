@@ -145,13 +145,12 @@
       .timeline-footer {
         margin-bottom: 16px;
         cursor: pointer;
-        span {
-          color: #000;
+        .right-start-now {
           font-size: 18px;
           font-weight: 600;
         }
         a {
-          color: #000;
+          color: #ff6700;
         }
       }
 
