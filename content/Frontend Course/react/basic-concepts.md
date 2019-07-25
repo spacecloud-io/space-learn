@@ -1,15 +1,35 @@
 ---
-title: "Learn React"
-description: Learn how to bind your react app with Space Cloud
-date: 2019-07-16T20:01:12+05:30
+title: "Basic Concepts"
+description: Cover the basic concepts for using Space Cloud
+date: 2019-07-16T20:07:39+05:30
 draft: true
-cover:
-- "point 1"
-- "point 2"
+weight: 1
 ---
 
+Code Snippet
 
-Hey guys, its Noorain Your tech bud, and in this tutorial I’m gonna teach you everything you’ll need to build a react app with space cloud and mongodb.
+```js
+var abc = "noorain"
+```
+
+Backquotes
+
+> Some quote
+
+A list:
+
+- List1: List can be like really long as well. They can end up in the next line
+- list 1
+
+Italic: _Italic stuff_
+
+Bold: **Bold stuff**
+
+## This is an h2
+
+### This is an h3
+
+#### This is an h4 for emergencies
 
 But before we get started, let’s talk about what space cloud really is. Space cloud is an open source web server which provides a realtime data access layer and a full fledged functions mesh for your microservices.
 
