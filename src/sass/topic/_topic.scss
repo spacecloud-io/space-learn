@@ -111,8 +111,11 @@
           .content {
             position: relative;
             top: -9.5vw;
-            color: #002c39;
             left: 32px;
+            color: #002c39;
+            a {
+              color: #002c39 !important;
+            }
             .timeline-title {
               font-size: 22px;
               font-weight: 600;
@@ -131,13 +134,13 @@
           }
         }
         .border:hover {
-          transition-delay: 0.3s;
+          transition-delay: 1s;
           .dots {
             border: 3px solid #ff6700;
             color: #ff6700;
           }
           .timeline-title {
-            color: #ff6700;
+            color: #ff6700 !important;
           }
         }
       }
