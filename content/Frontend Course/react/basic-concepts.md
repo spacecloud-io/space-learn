@@ -44,5 +44,3 @@ For the frontend, we won't be getting React. **This isn't a React course**. Howe
 - Create a service api to bind the app with MongoDB
 
 So in this tutorial we’ll be covering most of the concepts you would need to know while making an app with React and Space Cloud. The goal here is to leave you with enough confidence so you can start using Space Cloud in your own projects.
-
-See you in the next video

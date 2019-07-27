@@ -6,12 +6,66 @@ draft: true
 weight: 2
 ---
 
-Hey guys, its Noorain Your tech bud, and in this tutorial I’m gonna teach you everything you’ll need to build a react app with space cloud and mongodb.
+In the previous topic, we spoke about what Space Cloud is and where it fits in our stack. In this topic, we'll talk about getting Space Cloud up and running.
 
-But before we get started, let’s talk about what space cloud really is. Space cloud is an open source web server which provides a realtime data access layer and a full fledged functions mesh for your microservices.
+There are three primary ways you can deploy Space Cloud. The recommended one is directly in an orchestration system like [Kubernetes](https://kubernetes.io). This makes scaling your deployment a whole lot easier and makes your system more available. Moreover, Space Cloud integrates with Kubernetes. So the enterpise version of Space Cloud can deploy services directly on Kubernetes with a single command.
 
-Like Google firebase, it lets you query your database from your frontend (like a react app) or from your backend microservices. And it’s realtime! So all changes get synced between all concerned clients immediately. But unlike firebase, SC can run with mongodb, mysql and postgres with many more dbs yet to come. Basically you could replace the mongodb we’ll be using in this tutorial with mysql or postgres seamlessly. This is the realtime data access layer i was talking about.
+The second one is deploying it via docker. The final one is manually downloading and deploying the binary on your machine. We'll be going with the manual route in this tutorial.
 
-This sounds very similar to another super cool project named prisma. But unlike prisma you can use SC directly from the frontend securely. SC has got a super powerful security module which lets you secure database access.
+## Downloading Space Cloud
 
-The next one is the functions mesh. Basically it lets you write microservices but instead of exposing functionality as HTTP endpoints, you expose them directly as functions. What this means is that you can invoke these functions, (which are running on your backend) directly from another service or from your frontend. All networking, service discovery and load balancing is completely taken care of. So if you are running two instances of the same microservice, SC will automatically load balance between them... which is pretty cool
+First things first, SC is distributed as a single executable. You can download the zip file for your OS from the links below:
+
+- [Linux](https://spaceuptech.com/downloads/linux/space-cloud.zip)
+- [Mac OS](https://spaceuptech.com/downloads/darwin/space-cloud.zip)
+- [Windows](https://spaceuptech.com/downloads/windows/space-cloud.zip)
+
+
+The next step is to unzip the archive.
+
+For Linux / Mac: `unzip space-cloud.zip && chmod +x space-cloud`
+
+For Windows: Right click on the archive and select `extract here`
+
+You’ll find a binary named space-cloud or space-cloud.exe depending on your platform. Make it available on `PATH` if required.
+
+
+You can check if everything is perfectly installed by running the `space-cloud -v` command. If the dev gods are pleased with you, you’ll see an output similar to this.
+
+```
+space-cloud-ee version 0.10.1
+```
+
+## Start Space Cloud
+
+Running Space Cloud is pretty straight forward. All you need to do is run the following command:
+
+```
+space-cloud run --dev
+```
+
+> **Note:** The `--dev` flag instructs Space Cloud to let anyone configure it. It is not recommended to use this flag in production.
+
+Running this command starts downloading mission-control, which is Space Cloud’s Admin UI. We’ll be needing this to configure sc. Space Cloud is smart enough to download the ui only if it isn't already present or there is a new update available.
+
+The run command will also generate a default config file by the name of `config.yaml` within the same working directory if it doesn’t already exist. If you already had a `config.yaml` present, it will load that instead.
+
+Optionally you can also direct space cloud to use a `config.yaml` from any location. You can do that by running:
+
+```
+space-cloud run --dev --config /path/to/config.yaml
+```
+
+> **Note:** Your file name need not be `config.yaml`
+
+## Create a Project
+
+The run command prints out the link to mission control. Open that link in a browser. You'll be greeted by a screen which prompts you to create a project. All Space Cloud knobs including the enterpise features and billing are available here. All development related features of Space Cloud are completely open source and alway's will be. I’ll be explicit if I’m talking about an enterprise feature. 
+
+I’ll be talking about how to use mission control to configure SC in the next video.
+
+Your screen must be looking something like this:
+
+[ Welcome screen goes here ]
+
+I hope everything worked perfectly well. You can follow the same process to download Space Cloud on the environment of your choice. 
