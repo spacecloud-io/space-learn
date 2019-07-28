@@ -19,24 +19,26 @@
   <script>
     $(document).ready(function () {
       $('.sidenav').sidenav({ edge: 'right' });
+      $('.dropdown-trigger').dropdown();
     });
   </script>
 </head>
 
 <body>
   {{partial "sidenav.html" . }}
+  {{ partial "discord.html" . }}
   <div class="course">
     {{ partial "topbar-white.html" . }}
-    <div class="topbar-breadcrumb valign-wrapper hide-on-small-only">
+    <div class="topbar-breadcrumb valign-wrapper hide-on-med-and-down">
       <a href="/"><span>{{.Parent.Parent.Title}}</span></a>
-      <a href="{{.Parent.Permalink}}" class="material-icons">chevron_right</a>
+      <a href="{{.Parent.Permalink}}" class="material-icons breadcrumb-icon">chevron_right</a>
       <a href="{{.Parent.Permalink}}"><span>{{.Parent.Title}}</span></a>
     </div>
 
     <div style="background-color: #EBF4F5">
       <div class="row-top-padding">
         <div class="row">
-          <div class="col m3 l3 hide-on-small-only">
+          <div class="col l2 hide-on-med-and-down">
             <div class="left-wrapper">
               {{$selected := ""}}
               {{$page := .Page}}
@@ -53,40 +55,49 @@
             </div>
           </div>
 
-          <div class="col m7 l7">
+          <div class="col l7 s12">
             <div class="middle-padding">
               <div class="middle-wrapper">
-                <div style="box-shadow: 0 8px 10px -6px #EEE;">
-                  <div style="padding: 0 24px" class="hide-on-med-and-up">
-                    <div class="breadcrumbs valign-wrapper">
-                      <a href="#"><span>Front-end</span></a>
-                      <a href="#" class="material-icons">chevron_right</a>
-                      <a href="#"><span>React</span></a>
-                    </div>
-                    <p class="on-this-page">On this page:</p>
-                    {{.TableOfContents}}
+                <!-- <div style="box-shadow: 0px 1px 4px rgba(0,0,0,0.2);"> -->
+                <div style="padding: 0 24px" class="hide-on-large-only">
+                  <div class="breadcrumbs valign-wrapper">
+                    <a href="/"><span>{{.Parent.Parent.Title}}</span></a>
+                    <a href="{{.Parent.Permalink}}" class="material-icons">chevron_right</a>
+                    <a href="{{.Parent.Permalink}}"><span>{{.Parent.Title}}</span></a>
                   </div>
+                  <!-- <p class="on-this-page">On this page</p>
+                    {{.TableOfContents}} -->
                 </div>
+                <!-- </div> -->
                 <div class="content">
                   <h1>{{.Page.Title}}</h1>
                   {{.Page.Content}}
                 </div>
               </div> <br />
 
-              <div class="buttons hide-on-med-and-up">
+              <div class="buttons hide-on-large-only">
+                {{if .NextInSection}}
                 <div class="button1 valign-wrapper">
-                  <a href="#" class="material-icons">chevron_left</a>
+                  <a href="{{.NextInSection.Permalink}}">
+                    <div class="material-icons">chevron_left</div>
+                  </a>
                 </div> <br />
+                {{end}}
+
+                {{if .PrevInSection}}
                 <div class="button2">
-                  <div class="next-topic">
-                    <p class=next-topic-text>Next topic</p>
-                    <a href="#" class="material-icons">chevron_right</a>
-                  </div>
+                  <a href="{{.PrevInSection.Permalink}}">
+                    <div class="next-topic">
+                      <p class=next-topic-text>Next topic</p>
+                      <div class="material-icons">chevron_right</div>
+                    </div>
+                  </a>
                 </div>
+                {{end}}
               </div>
 
-              <div class="buttons-l hide-on-small-only">
-                <div class="col m6 l6">
+              <div class="buttons-l hide-on-med-and-down">
+                <div class="col l6">
                   {{if .NextInSection}}
                   <a href="{{.NextInSection.Permalink}}">
                     <div class="previous">
@@ -100,7 +111,7 @@
                   {{end}}
                 </div>
 
-                <div class="col m6 l6">
+                <div class="col l6">
                   {{if .PrevInSection}}
                   <a href="{{.PrevInSection.Permalink}}">
                     <div class="next">
@@ -117,7 +128,7 @@
             </div>
           </div>
 
-          <div class="col m2 l2 hide-on-small-only">
+          <div class="col l3 hide-on-med-and-down">
             <div class="right-wrapper">
               <div class="on-this-page">On this page:</div>
               {{.Page.TableOfContents}}

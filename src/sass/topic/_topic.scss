@@ -108,10 +108,10 @@
             text-align: center;
           }
 
-          .content {
+          .timeline-content {
             position: relative;
             top: -9.5vw;
-            left: 32px;
+            left: 40px;
             color: #002c39;
             a {
               color: #002c39 !important;
@@ -130,6 +130,9 @@
               font-size: 14px;
               color: #000;
               width: 90%;
+            }
+            @media #{$large-and-up} {
+              top: -3.3vw;
             }
           }
         }
@@ -159,7 +162,7 @@
 
       @media #{$large-and-up} {
         position: relative;
-        top: -2vw;
+        top: -2.6vw;
         padding: 104px 80px;
 
         .title {

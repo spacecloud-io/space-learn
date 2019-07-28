@@ -61,7 +61,7 @@ Great. Now since we have got the formalities out of the way, I think I should se
 So the first step is to install the space-api client library in our project. So let’s go to the terminal and run the following command
 
 ```
-npm install --save space-api.
+npm install --save space-api
 ```
 
 Since we have got that out of the way. Let’s open up our `service.js` file. Lets import the API object from our freshly installed library. It will look something like this:
@@ -80,7 +80,7 @@ That’s all we need to initialize the space-api.
 We also need to create a mongo db object since that’s the database we will be using. That would look like
 
 ```
-this.db = api.Mongo()
+this.db = this.api.Mongo()
 ```
 If you wanted to use any other database, it would be as simple as changing the mongo to mysql or postgres or any other supported database. Let’s leave it to mongo for now.
 
@@ -89,7 +89,7 @@ So our final `constructor` will look like:
 ```
 constructor(projectId, url) {
   this.api = new API(projectId, url);
-  this.db = api.Mongo();
+  this.db = this.api.Mongo();
 }
 ```
 

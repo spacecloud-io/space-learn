@@ -25,6 +25,7 @@
 
 <body>
   {{partial "sidenav.html" . }}
+  {{ partial "discord.html" . }}
   <div class="topic">
     {{partial "topbar-white.html" . }}
     <center><div class="page-heading">{{.Page.Title}}</div></center>
@@ -67,7 +68,7 @@
               {{range $i, $p := sort .Page.Pages}}
               <div class="border">
                   <div class="dots">{{add $i 1}}</div>
-                  <div class="content">
+                  <div class="timeline-content">
                     <a class="timeline-title" href="{{$p.Permalink}}">{{$p.Title}}</a>
                     <div class="timeline-time">
                       <span>{{$p.ReadingTime}} MINS</span>
