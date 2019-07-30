@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Learn</title>
   <link type="text/css" rel="stylesheet" href="/css/app.css" media="screen,projection" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,6 +25,7 @@
 
 <body>
   {{partial "sidenav.html" . }}
+  {{ partial "discord.html" . }}
   <div class="topic">
     {{partial "topbar-white.html" . }}
     <center><div class="page-heading">{{.Page.Title}}</div></center>
@@ -66,7 +68,7 @@
               {{range $i, $p := sort .Page.Pages}}
               <div class="border">
                   <div class="dots">{{add $i 1}}</div>
-                  <div class="content">
+                  <div class="timeline-content">
                     <a class="timeline-title" href="{{$p.Permalink}}">{{$p.Title}}</a>
                     <div class="timeline-time">
                       <span>{{$p.ReadingTime}} MINS</span>

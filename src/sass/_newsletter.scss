@@ -7,6 +7,7 @@
   padding: 32px 24px;
   z-index: 1;
   position: relative;
+  top: -28vh;
 
   .input-wrapper {
     display: flex;
@@ -53,20 +54,19 @@
     }
   }
 
-  .discord {
+  .discord-logo {
     height: 60px;
     margin: 0 8px;
     cursor: pointer;
   }
 
-  .github {
+  .github-logo {
     height: 35px;
     margin: 0 8px;
     cursor: pointer;
   }
-  
+
   @media #{$large-and-up} {
     top: -10vw;
   }
 }
-

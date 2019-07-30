@@ -18,10 +18,16 @@
     .tryitout {
       height: 30px;
     }
-    .sidenav-btn-style {
+    .sidenav-btn {
       margin: 24px 0 24px 32px;
+      text-transform: none;
+      background-color: #ff6700;
+      border-radius: 5px;
+      width: 60%;
+      font-size: 14px;
+      height: 35px;
+      line-height: 35px;
     }
-    text-transform: none;
   }
   .community-style {
     height: 30px;
