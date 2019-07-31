@@ -32,7 +32,7 @@ You’ll find a binary named space-cloud or space-cloud.exe depending on your pl
 
 You can check if everything is perfectly installed by running the `space-cloud -v` command. If the dev gods are pleased with you, you’ll see an output similar to this.
 
-```
+```bash
 space-cloud-ee version 0.10.1
 ```
 
@@ -40,7 +40,7 @@ space-cloud-ee version 0.10.1
 
 Running Space Cloud is pretty straight forward. All you need to do is run the following command:
 
-```
+```bash
 space-cloud run --dev
 ```
 
@@ -52,7 +52,7 @@ The run command will also generate a default config file by the name of `config.
 
 Optionally you can also direct space cloud to use a `config.yaml` from any location. You can do that by running:
 
-```
+```bash
 space-cloud run --dev --config /path/to/config.yaml
 ```
 

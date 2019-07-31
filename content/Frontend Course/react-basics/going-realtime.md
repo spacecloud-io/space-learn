@@ -24,7 +24,7 @@ I would highly recomment you to go through [the docs for live query](https://spa
 
 The syntax for live query looks something like this:
 
-```
+```js
 // Callback for data changes:
 const onSnapshot  = (docs, type, changedDoc) => {
    console.log(docs, snapshot, changedDoc)
@@ -49,7 +49,7 @@ Also, our `getTodos()` function wouldn't be asynchronous anymore. It will now ex
 
 So the updated `getTodos()` function will look like this:
 
-```
+```js
 getTodos(cb) {
   const condition = cond('userId', '==', this.userId);
 
@@ -75,7 +75,7 @@ Now we need to go to the `Todo.jsx` file to make the corresponding changes.
 
 Our effect hook will change since it was responsible to get the todos. We will have to pass a callback to `client.getTodo()` function to copy the todos to our react state whenever we get an update. Also, we can simply return our unsubscribe function. React will invoke the function we return in `useEffect` whenever the component unmounts, hence, free up our resources.
 
-```
+```js
 useEffect(() => {
   // Acts as ComponentDidMount
   return client.getTodos(((err, todos) => {
@@ -94,7 +94,7 @@ Hence we can remove the call to `setList()` in our `addTodo()`, `deleteTodo()` a
 
 Our updated `Todo.jsx` looks something like this.
 
-```
+```js
 import React, { useState, useEffect } from 'react'
 import './todo.css'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";

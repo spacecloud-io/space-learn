@@ -14,7 +14,7 @@ Now it's our turn to get to the fun part, and that is code. I’ll be talking ab
 
 Since react is beyond the scope of this tutorial, we’ll be cloning a repo I’ve already made which serves as boilerplate. Start by cloning the repo using the following command
 
-```
+```bash
 git clone github.com/spaceuptech/react-todo-app.git
 ```
 
@@ -26,7 +26,7 @@ So we have a basic login page, along with a sign up page. Since there is no auth
 
 Our folder structure might look something like this:
 
-```
+```bash
 react-todo-app/
 |-- node_modules/
 |-- public/
@@ -60,18 +60,19 @@ Great. Now since we have got the formalities out of the way, I think I should se
 
 So the first step is to install the space-api client library in our project. So let’s go to the terminal and run the following command
 
-```
+```bash
 npm install --save space-api
 ```
 
 Since we have got that out of the way. Let’s open up our `service.js` file. Lets import the API object from our freshly installed library. It will look something like this:
 
-```
+```js
 import { API } from 'space-api';
 ```
 
 Now in the constructor, we’ll create an instance of this api. The first parameter to the constructor is our project id and the second one is the url. We should be getting these from the constructor.
-```
+
+```js
 this.api = new API(projectId, url);
 ```
 
@@ -79,14 +80,14 @@ That’s all we need to initialize the space-api.
 
 We also need to create a mongo db object since that’s the database we will be using. That would look like
 
-```
+```js
 this.db = this.api.Mongo()
 ```
 If you wanted to use any other database, it would be as simple as changing the mongo to mysql or postgres or any other supported database. Let’s leave it to mongo for now.
 
 So our final `constructor` will look like:
 
-```
+```js
 constructor(projectId, url) {
   this.api = new API(projectId, url);
   this.db = this.api.Mongo();
@@ -97,7 +98,7 @@ Now inside the `src` folder, we’ll create a `client.js` file. Let's import our
 
 So our `client.js` file will look something like this:
 
-```
+```js
 import Service from './services/service';
 
 const client = new Service('todo-app','http://localhost:4122');

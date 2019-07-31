@@ -12,7 +12,7 @@ In this topic we are going to dive in into the most fun part, which is binding t
 
 We'll store all our todos in the `todos` colelction. Our single todo object will look something like this:
 
-```
+```json
 {
   "_id": "some-unique-id",
   "value": "text of the todo",
@@ -27,7 +27,7 @@ Let’s go back to our `service.js` file. We'll start with add todo.
 
 Create an async addTodo function which will take in the text of the todo. First prepare the object we want to insert in the database. The `_id` of this object must correspond the the fields in mongodb or the columns in you SQL database. We'll use the `generateId()` function to create a unique id.
 
-```
+```js
 const obj = { _id: this.generateId(), value: value, isCompleted: false, userId: this.userId }
 ```
 
@@ -35,14 +35,14 @@ Now let’s call the `db.insert()` function. We need to pass the name of the col
 
 Next we pass the object to be inserted and fire the query. 
 
-```
+```js
 // Fire the insert query
 const res = await this.db.insert('todos').doc(obj).apply();
 ```
 
 If the status code is anything other than 200 then our query has failed. Simply return a nack. Else, we’ll return an ack along with the document we inserted.
 
-```
+```js
 // Return -ve ack is status code isn't 200
 if (res.status !== 200) {
   return { ack: false };
@@ -57,13 +57,13 @@ Let’s proceed with delete todo. It will need just the id of the todo to be del
 
 We need to delete the todo with the provided id of the current user. For that we need to add a condition. Space api does give us some helper functions to work with conditions. Lets import those as well.
 
-```
+```js
 import { API, cond, and } from 'space-api';
 ```
 
 Now lets create a condition object.
 
-```
+```js
 const condition = and(cond('_id', '==', id), cond('userId', '==', this.userId));
 ```
 
@@ -71,14 +71,14 @@ It seems like the userId isn’t really required. But we’ll be needing it to m
 
 Now lets add a delete query and pass the condition to it. It’s just as you’d expect it to be. 
 
-```
+```js
 // Fire the query to delete the todo
 const res = await this.db.delete('todos').where(condition).apply()
 ```
 
 If the status code isn’t 200… well you know the drill by now.
 
-```
+```js
 // Return -ve ack is status code isn't 200
 if (res.status !== 200) {
   return { ack: false };
@@ -93,7 +93,7 @@ return { ack: true };
 
 Update is pretty much similar to delete. Everything will mostly remain the same. Along with the todo id, we’ll also need the isCompleted field because that’s what we will be updating. Our condition will be exactly the same. 
 
-```
+```js
 const condition = and(cond('_id', '==', id), cond('userId', '==', this.userId));
 
 // Fire the query to update the todo
@@ -102,7 +102,7 @@ const res = await this.db.update('todos').set({ isCompleted: isCompleted}).where
 
 The set method expects an object which indicates the fields we wanna set. It’s the isCompleted field in this case. Handle the error and return the appropriate response.
 
-```
+```js
 // Return -ve ack is status code isn't 200
 if (res.status !== 200) {
   return { ack: false };
@@ -115,7 +115,7 @@ return { ack: true };
 
 Get is the simplest one in my opinion. This one won’t take any parameters. We’ll add a condition since we need the user to fetch just her todos. Now let’s fire the get request.
 
-```
+```js
 const condition = cond('userId', '==', this.userId);
 
 // Fire the query to get the todos
@@ -124,7 +124,7 @@ const res = await this.db.get('todos').where(condition).apply()
 
 Handle the errors. And if everything goes well, return the array of todos received. 
 
-```
+```js
 // Return -ve ack is status code isn't 200
 if (res.status !== 200) {
   return { ack: false };
@@ -139,7 +139,7 @@ That’s all the binding we will need for now.
 
 Our final service file will look something like this:
 
-```
+```js
 import { API, cond, and } from 'space-api';
 
 class Service {
@@ -260,7 +260,7 @@ We already have functions for adding, removing and updating todos here. Currentl
 
 So as a first step, let’s import the client object.
 
-```
+```js
 import client from '../../client';
 ```
 
@@ -268,7 +268,7 @@ import client from '../../client';
 
 Now inside the addTodo handler, we’ll call the `client.addTodo()` function and pass the value variable. Once this promise completes, check for errors and then append the newly inserted to-do to the list.
 
-```
+```js
 const addTodo = () => {
   client.addTodo(value).then(res => {
     if (!res.ack) {
@@ -285,7 +285,7 @@ const addTodo = () => {
 ### Delete Todo
 Similarly in the delete todo we’ll call the delete todo function, pass the, provided id and if everything goes well, we’ll filter out the todo from our state.
 
-```
+```js
 const deleteTodo = id => {
   client.deleteTodo(id).then(res => {
     if (!res.ack) {
@@ -302,7 +302,7 @@ const deleteTodo = id => {
 
 Update isn’t very different either. We’ll be calling the updateTodo function here. Along with the todo id, we’ll also pass the new state of the todo. Handle the errors, and then update the list we have.
 
-```
+```js
 const updateTodo = todo => {
   client.updateTodo(todo._id, !todo.isCompleted).then(res => {
     if (!res.ack) {
@@ -322,6 +322,7 @@ const updateTodo = todo => {
 
 The only task remaining now is fetching the todos, We’ll do that in the empty effect we have here. Let’s call the `client.getTodos()` function, and simply load it in our state.
 
+```js
 useEffect(() => {
   // Acts as ComponentDidMount
   client.getTodos().then(res => {
@@ -333,10 +334,11 @@ useEffect(() => {
     setList(res.todos);
   })
 }, [0]);
+```
 
 ## Final Todo.jsx file
 
-```
+```js
 import React, { useState, useEffect } from 'react'
 import './todo.css'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";

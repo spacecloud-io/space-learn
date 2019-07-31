@@ -16,7 +16,7 @@ Now inside the body, we’ll simply call the signIn method on the `db` object. Y
 
 Call the `db.signIn()` function. Pass the `username` and `password` fields. This function returns a promise, so lets add an await in front of it and store the result in a variable. It will look something like this:
 
-```
+```js
 const res = await this.db.signIn(username, pass);
 ```
 
@@ -28,7 +28,7 @@ For that we need to use the `this.api.setToken()` command. There you go.
 
 Till now our code looks like this:
 
-```
+```js
 // Fire the sign in request
 const res = await this.db.signIn(username, pass);
 
@@ -43,7 +43,7 @@ this.api.setToken(res.data.token);
 
 We’ll also save the userId in our service. We’ll need this while playing around with the todos. We get the user in the `res.data.user._id` variable for MongoDB and `res.data.user.id` variable for the SQL databases.
 
-```
+```js
 // Store the userId for further operation
 this.userId = res.data.user._id;
 ```
@@ -52,7 +52,7 @@ Now let’s return an object with ack true.
 
 So our final login function will look something like this:
 
-```
+```js
 async login(username, pass) {
   // Fire the sign in request
   const res = await this.db.signIn(username, pass);
@@ -80,7 +80,7 @@ The `db.signIn()` function will get replaced with the `db.signUp()` which takes 
 
 The rest will remain exactly the same. The final signUp function will look like this:
 
-```
+```js
 async signUp(username, name, pass) {
   // Fire the sign up request
   const res = await this.db.signUp(username, name, pass, 'default');
@@ -104,13 +104,13 @@ async signUp(username, name, pass) {
 
 Lets not forget to save the file and head over to the SignIn component in 'src/page/sign-in' folder. The first step would be to import the client.
 
-```
+```js
 import client from '../../client';
 ```
 
 Once we have done that, we need to update the `signIn` handler to call the login function on the client object. Keep in mind, it will return a promise. So on getting a valid response, let’s carry on the todo page, else throw an alert.
 
-```
+```js
 const signIn = () => {
   client.login(email, pass).then(res => {
     if (!res.ack) {
@@ -127,13 +127,13 @@ const signIn = () => {
 
 We need to do something similar for the sign up page as well. Import the client.
 
-```
+```js
 import client from '../../client';
 ```
 
 In the sign up handler call the signup function. This too, returns a promise. If the ack is true we shall proceed to the next page else throw an alert. It will look something like this:
 
-```
+```js
 const signUp = () => {
   client.signUp(email, username, pass).then(res => {
     if (!res.ack) {

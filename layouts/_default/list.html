@@ -6,20 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Learn</title>
   <link type="text/css" rel="stylesheet" href="/css/app.css" media="screen,projection" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons|Raleway:100,200,300,400,500,600,700,800,900|Open+Sans:300,400,600,700,800"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link
     href="https://fonts.googleapis.com/icon?family=Material+Icons|Raleway:100,200,300,400,500,600,700,800,900|Open+Sans:300,400,600,700,800"
     rel="stylesheet">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <title>{{.Title}} - Space Cloud</title>
+  <meta name="description" content="{{.Description}}.">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{.Title}} - Space Cloud" />
+  <meta property="og:description" content="{{.Description}}." />
+  <meta property="og:image" content="https://spaceuptech.com/images/kit/logo-white.svg" />
+  <meta property="og:url" content="https://spaceuptech.com" />
+  <meta property="og:site_name" content="Space Up Technologies" />
+  <meta name="twitter:title" content="{{.Title}} - Space Cloud">
+  <meta name="twitter:description" content="{{.Description}}.">
+  <meta name="twitter:image" content="https://spaceuptech.com/images/kit/logo-white.svg">
+  <meta name="twitter:site" content="@SpaceUpTech">
+  <meta name="twitter:creator" content="@SpaceUpTech">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104521884-1"></script>
   <script>
-    $(document).ready(function () {
-      $('.sidenav').sidenav({ edge: 'right' });
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104521884-1');
   </script>
 </head>
 
@@ -28,7 +46,9 @@
   {{ partial "discord.html" . }}
   <div class="topic">
     {{partial "topbar-white.html" . }}
-    <center><div class="page-heading">{{.Page.Title}}</div></center>
+    <center>
+      <div class="page-heading">{{.Page.Title}}</div>
+    </center>
     <div class="row-top">
       <div class="row">
         <div class="col s12 m4 l4">
@@ -53,7 +73,7 @@
             {{$startPage := ""}}
             {{range $i, $p := .Pages}}
             {{if eq $p.Weight 1}}
-              {{$startPage = $p.Permalink}}
+            {{$startPage = $p.Permalink}}
             {{end}}
             {{end}}
             <a class="waves-effect waves-orange btn-flat start-now" href="{{$startPage}}">Start now</a>
@@ -67,17 +87,17 @@
             <div class="timeline">
               {{range $i, $p := sort .Page.Pages}}
               <div class="border">
-                  <div class="dots">{{add $i 1}}</div>
-                  <div class="timeline-content">
-                    <a class="timeline-title" href="{{$p.Permalink}}">{{$p.Title}}</a>
-                    <div class="timeline-time">
-                      <span>{{$p.ReadingTime}} MINS</span>
-                      <!-- <span>.</span>
+                <div class="dots">{{add $i 1}}</div>
+                <div class="timeline-content">
+                  <a class="timeline-title" href="{{$p.Permalink}}">{{$p.Title}}</a>
+                  <div class="timeline-time">
+                    <span>{{$p.ReadingTime}} MINS</span>
+                    <!-- <span>.</span>
                       <span>5 STEPS</span> -->
-                    </div>
-                    <div class="timeline-desc">{{.Page.Description}}</div>
                   </div>
+                  <div class="timeline-desc">{{.Page.Description}}</div>
                 </div>
+              </div>
               {{end}}
             </div>
 
@@ -91,6 +111,13 @@
     </div>
     {{partial "newsletter.html" . }}
     {{partial "footer.html" . }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.sidenav').sidenav({ edge: 'right' });
+      });
+    </script>
 </body>
 
 </html>
