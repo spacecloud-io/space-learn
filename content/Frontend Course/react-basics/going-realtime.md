@@ -1,8 +1,8 @@
 ---
 title: "Going Realtime"
 description: Let's make our app Realtime
-date: 2019-07-16T20:11:26+05:30
-draft: true
+date: 2019-08-03T00:00:00+05:30
+draft: false
 weight: 7
 ---
 
@@ -36,16 +36,16 @@ const onError = (err) => {
 }
 
 // Subscribe to any changes in posts of 'frontend' category
-let unsubscribe = db.liveQuery('posts').where(condition).subscribe(onSnapshot, onError) 
+let subscription = db.liveQuery('posts').where(condition).subscribe(onSnapshot, onError) 
 ```
 
 The `onSnapshot` and `onError` functions are the callbacks passed to the `liveQuery.subscribe()` function. The `onSnapshot` function is invoked whenever there is a change in our result set. The `onError` function is invoked whenever there is some error encountered. Pretty obvious right.
 
 The rest is pretty much similar to `db.get()`.
 
-Unlike `db.get()`, `db.liveQuery()` doesnt return a Promise. Instead it returns an unsubscribe function you can use to de-register the liveQuery. This frees up resources on the client.
+Unlike `db.get()`, `db.liveQuery()` doesnt return a Promise. Instead it returns a subscription object containing an unsubscribe function you can use to de-register the liveQuery. This frees up resources on the client.
 
-Also, our `getTodos()` function wouldn't be asynchronous anymore. It will now expect a callback in which it will pass an error or the latest copy of the documents. It will return the `unsubscribe` function so the component can trigger an unsubscribe whenever it unmounts.
+Also, our `getTodos()` function wouldn't be asynchronous anymore. It will now expect a callback in which it will pass an error or the latest copy of the documents. It will return a subscription object with a `unsubscribe` function so the component can trigger an unsubscribe whenever it unmounts.
 
 So the updated `getTodos()` function will look like this:
 
@@ -78,13 +78,15 @@ Our effect hook will change since it was responsible to get the todos. We will h
 ```js
 useEffect(() => {
   // Acts as ComponentDidMount
-  return client.getTodos(((err, todos) => {
+  const subscription = client.getTodos(((err, todos) => {
     if (err) {
       alert(err);
       return
     }
     setList(todos);
   }))
+
+  return subscription.unsubscribe;
 }, [0]);
 ```
 
@@ -106,13 +108,15 @@ function Todo() {
 
   useEffect(() => {
     // Acts as ComponentDidMount
-    return client.getTodos(((err, todos) => {
+    const subscription = client.getTodos(((err, todos) => {
       if (err) {
         alert(err);
         return
       }
       setList(todos);
     }))
+
+  return subscription.unsubscribe;
   }, [0]);
 
   const addTodo = () => {

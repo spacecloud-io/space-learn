@@ -1,8 +1,8 @@
 ---
 title: "User Management"
 description: Bind the Login and Sign Up screens
-date: 2019-07-16T20:11:26+05:30
-draft: true
+date: 2019-08-03T00:00:00+05:30
+draft: false
 weight: 5
 ---
 
