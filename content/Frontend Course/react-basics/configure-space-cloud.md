@@ -12,8 +12,6 @@ Now that we have Space Cloud up and running, we need to configure it for our pro
 
 Open mission control. Click on create a project. Give it a name `todo-app` and select Mongo DB as the default database. You cannot change the project id once a project is created. We'll be using it on the frontend to initialise the client api as well.
 
-[ Image of filled create project page ]
-
 This will create a project for us.
 
 ## Configure the Modules
@@ -28,17 +26,13 @@ The first one is the user management module. This exposes the sign in and sign u
 
 Enable the email authentication. We'll need that to implement the sign in and sign out features.
 
-[ Image of user management module being enabled ]
-
 ### Database Module
 
 The next is the database or the crud module. This exposes the realtime data access layer functionality. As you can see the default `connection string` is already loaded for us. 
 
 There is also a rule created named `default`. We’ll be discussing the security rules in another video. But to get a rough idea, this rule is exposing the entire database to the frontend. Not really secure but it’s perfect for development.
 
-[ Image of database module ]
-
-## File Storage
+### File Storage
 
 The file storage module lets you manage binary data like music, video and image file. It has pluggable backend stores like Amazon S3 and Google Cloud Storage for scalability. You can also use the local filesystem as a storage backend.
 
