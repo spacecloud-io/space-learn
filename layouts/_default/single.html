@@ -49,8 +49,8 @@
     {{ partial "topbar-white.html" . }}
     <div class="topbar-breadcrumb valign-wrapper hide-on-med-and-down">
       <a href="/"><span>{{.Parent.Parent.Title}}</span></a>
-      <a href="{{.Parent.Permalink}}" class="material-icons breadcrumb-icon">chevron_right</a>
-      <a href="{{.Parent.Permalink}}"><span>{{.Parent.Title}}</span></a>
+      <a href="{{.Parent.RelPermalink}}" class="material-icons breadcrumb-icon">chevron_right</a>
+      <a href="{{.Parent.RelPermalink}}"><span>{{.Parent.Title}}</span></a>
     </div>
 
     <div style="background-color: #EBF4F5">
@@ -67,7 +67,7 @@
               {{end}}
               <div class="timeline-border {{$selected}}">
                 <div class="dots">{{add $i 1}}</div>
-                <a href="{{$p.Permalink}}" class="point">{{$p.Title}} </a>
+                <a href="{{$p.RelPermalink}}" class="point">{{$p.Title}} </a>
               </div>
               {{end}}
             </div>
@@ -80,8 +80,8 @@
                 <div style="padding: 0 24px" class="hide-on-large-only">
                   <div class="breadcrumbs valign-wrapper">
                     <a href="/"><span>{{.Parent.Parent.Title}}</span></a>
-                    <a href="{{.Parent.Permalink}}" class="material-icons">chevron_right</a>
-                    <a href="{{.Parent.Permalink}}"><span>{{.Parent.Title}}</span></a>
+                    <a href="{{.Parent.RelPermalink}}" class="material-icons">chevron_right</a>
+                    <a href="{{.Parent.RelPermalink}}"><span>{{.Parent.Title}}</span></a>
                   </div>
                   <!-- <p class="on-this-page">On this page</p>
                     {{.TableOfContents}} -->
@@ -96,7 +96,7 @@
               <div class="buttons hide-on-large-only">
                 {{if .NextInSection}}
                 <div class="button1 valign-wrapper">
-                  <a href="{{.NextInSection.Permalink}}">
+                  <a href="{{.NextInSection.RelPermalink}}">
                     <div class="material-icons">chevron_left</div>
                   </a>
                 </div> <br />
@@ -104,7 +104,7 @@
 
                 {{if .PrevInSection}}
                 <div class="button2">
-                  <a href="{{.PrevInSection.Permalink}}">
+                  <a href="{{.PrevInSection.RelPermalink}}">
                     <div class="next-topic">
                       <p class=next-topic-text>Next topic</p>
                       <div class="material-icons">chevron_right</div>
@@ -117,7 +117,7 @@
               <div class="buttons-l hide-on-med-and-down">
                 <div class="col l6">
                   {{if .NextInSection}}
-                  <a href="{{.NextInSection.Permalink}}">
+                  <a href="{{.NextInSection.RelPermalink}}">
                     <div class="previous">
                       <div class="material-icons">chevron_left</div>
                       <div style="margin-left: 16px;">
@@ -131,7 +131,7 @@
 
                 <div class="col l6">
                   {{if .PrevInSection}}
-                  <a href="{{.PrevInSection.Permalink}}">
+                  <a href="{{.PrevInSection.RelPermalink}}">
                     <div class="next">
                       <div style="margin-right: 16px;">
                         <div class="topic">Next Topic</div>

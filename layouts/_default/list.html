@@ -73,7 +73,7 @@
             {{$startPage := ""}}
             {{range $i, $p := .Pages}}
             {{if eq $p.Weight 1}}
-            {{$startPage = $p.Permalink}}
+            {{$startPage = $p.RelPermalink}}
             {{end}}
             {{end}}
             <a class="waves-effect waves-orange btn-flat start-now" href="{{$startPage}}">Start now</a>
@@ -89,7 +89,7 @@
               <div class="border">
                 <div class="dots">{{add $i 1}}</div>
                 <div class="timeline-content">
-                  <a class="timeline-title" href="{{$p.Permalink}}">{{$p.Title}}</a>
+                  <a class="timeline-title" href="{{$p.RelPermalink}}">{{$p.Title}}</a>
                   <div class="timeline-time">
                     <span>{{$p.ReadingTime}} MINS</span>
                     <!-- <span>.</span>
