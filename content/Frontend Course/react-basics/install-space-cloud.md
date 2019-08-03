@@ -62,10 +62,6 @@ space-cloud run --dev --config /path/to/config.yaml
 
 The run command prints out the link to mission control. Open that link in a browser. You'll be greeted by a screen which prompts you to create a project. All Space Cloud knobs including the enterpise features and billing are available here. All development related features of Space Cloud are completely open source and alway's will be. I’ll be explicit if I’m talking about an enterprise feature. 
 
-I’ll be talking about how to use mission control to configure SC in the next video.
-
-Your screen must be looking something like this:
-
-[ Welcome screen goes here ]
+I’ll be talking about how to use mission control to configure SC in the next video.]
 
 I hope everything worked perfectly well. You can follow the same process to download Space Cloud on the environment of your choice. 
