@@ -1,8 +1,8 @@
 ---
 title: "Basic Concepts"
 description: Cover the basic concepts for using Space Cloud
-date: 2019-07-16T20:07:39+05:30
-draft: true
+date: 2019-08-03T00:00:00+05:30
+draft: false
 weight: 1
 ---
 

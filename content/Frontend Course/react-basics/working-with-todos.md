@@ -1,8 +1,8 @@
 ---
 title: "Working With Todos"
 description: Get the todo page binded with MongoDB
-date: 2019-07-16T20:11:26+05:30
-draft: true
+date: 2019-08-03T00:00:00+05:30
+draft: false
 weight: 6
 ---
 
