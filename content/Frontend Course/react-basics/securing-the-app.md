@@ -6,7 +6,7 @@ draft: false
 weight: 8
 ---
 
-Well We have got our app up and ready. But that doesn't mean we can deploy it straight away. There is a very imortant piece still missing. That's security.
+Well, we have got our app up and ready. But that doesn't mean we can deploy it straight away. There is a very imortant piece still missing. That's security.
 
 ## Security in Space Cloud
 
@@ -24,11 +24,11 @@ So this business logic can be directly modelled as an access control problem by 
 
 _A user can create, read, update or delete a todo only if the `userId` of the todo is equal to the `id` present in the token claims of the JWT token_. 
 
-Pretty straigh forward right?
+Pretty straight forward right?
 
 The security rules, which you've heard me mention quite a few times helps us do exactly that. Remember the JWT Token we had set in `api.setToken()`? It's claims are available to us in the security rules. Along with the JWT claims, even the request is available to us in the security rules.
 
-In a nutshel the following variables are available in the security rules:
+In a nutshell the following variables are available in the security rules:
 
 - **auth:** The claims present in the JWT token. If you are using in-built user management service of Space Cloud, then the `auth` has `id`, `name` and `role` of the user. While making a custom service, you are free to choose the claims which go inside the JWT token and thus available in the `auth` variable.
 - **find:** Present when a where clause is supplied by the `where` method in client libraries (Follows the MongoDB query syntax).
@@ -38,7 +38,7 @@ In a nutshel the following variables are available in the security rules:
 
 You can read more about security rules from [the docs](https://spaceuptech.com/docs/security/overview).
 
-What we need is a simple `match` rule. We need to compare `args.auth.id` and `args.find.userId` in case of read, update and delete. In case of create, we'll need to match `args.auth.id` with `
+What we need is a simple `match` rule. We need to compare `args.auth.id` and `args.find.userId` in case of read, update and delete. In case of create, we'll need to match `args.auth.id` with `args.doc.userId`
 
 The rule for create will look something like this:
 

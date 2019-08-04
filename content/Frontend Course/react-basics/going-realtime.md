@@ -43,7 +43,7 @@ The `onSnapshot` and `onError` functions are the callbacks passed to the `liveQu
 
 The rest is pretty much similar to `db.get()`.
 
-Unlike `db.get()`, `db.liveQuery()` doesnt return a Promise. Instead it returns a subscription object containing an unsubscribe function you can use to de-register the liveQuery. This frees up resources on the client.
+Unlike `db.get()`, `db.liveQuery()` doesn't return a Promise. Instead it returns a subscription object containing an unsubscribe function you can use to de-register the liveQuery. This frees up resources on the client.
 
 Also, our `getTodos()` function wouldn't be asynchronous anymore. It will now expect a callback in which it will pass an error or the latest copy of the documents. It will return a subscription object with a `unsubscribe` function so the component can trigger an unsubscribe whenever it unmounts.
 
@@ -191,6 +191,6 @@ We've come along a long way. You have just seen the power of a Backend as a Serv
 
 And since Space Cloud works will all the popular database, you do not even need to learn a lot of new things. A single API to rule it all out.
 
-However, in such solutions, security is top concern. What is someone blindly deletes all our todos. That would be a security breach.
+However, in such solutions, security is top concern. What if someone blindly deletes all our todos. That would be a security breach.
 
 In the next topic we'll cover how to secure our awesome todo app.
