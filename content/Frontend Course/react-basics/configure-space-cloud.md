@@ -16,7 +16,7 @@ This will create a project for us.
 
 ## Configure the Modules
 
-On the left we have the various modules present in space cloud. In this tutorial, we'll need  the `User Management` and `Database` only.
+On the left we have the various modules present in Space Cloud. In this tutorial, we'll need  the `User Management` and `Database` only.
 
 Let's quickly go through the modules.
 
@@ -30,7 +30,7 @@ Enable the email authentication. We'll need that to implement the sign in and si
 
 The next is the database or the crud module. This exposes the realtime data access layer functionality. As you can see the default `connection string` is already loaded for us. 
 
-There is also a rule created named `default`. We'll be discussing the security rules in another video. But to get a rough idea, this rule is exposing the entire database to the frontend. Not really secure but it's perfect for development.
+There is also a rule created named `default`. We'll be discussing the security rules in another topic. But to get a rough idea, this rule is exposing the entire database to the frontend. Not really secure but it's perfect for development.
 
 ### File Storage
 
@@ -54,5 +54,5 @@ Deploy is an enterprise feature. It lets you deploy your frontend (react in this
 
 ## Wrapping up
 
-So that was a brief tour of mission control. I must also add that you need not restart sc for any changes you make. SC hot reloads everything. In the next topic I'll be talking about setting up the react project and finally get to writing some code.
+So that was a brief tour of mission control. I must also add that you need not restart Space Cloud for any changes you make. Space Cloud hot reloads everything. In the next topic I'll be talking about setting up the react project and finally get to writing some code.
 

@@ -16,7 +16,7 @@ The second one is deploying it via docker. The final one is manually downloading
 
 ## Downloading Space Cloud
 
-First things first, SC is distributed as a single executable. You can download the zip file for your OS from the links below:
+First things first, Space Cloud is distributed as a single executable. You can download the zip file for your OS from the links below:
 
 - [Linux](https://spaceuptech.com/downloads/linux/space-cloud.zip)
 - [Mac OS](https://spaceuptech.com/downloads/darwin/space-cloud.zip)
@@ -48,11 +48,11 @@ space-cloud run --dev
 
 > **Note:** The `--dev` flag instructs Space Cloud to let anyone configure it. It is not recommended to use this flag in production.
 
-Running this command starts downloading mission-control, which is Space Cloud's Admin UI. We'll be needing this to configure sc. Space Cloud is smart enough to download the ui only if it isn't already present or there is a new update available.
+Running this command starts downloading mission-control, which is Space Cloud's Admin UI. We'll be needing this to configure Space Cloud. Space Cloud is smart enough to download the ui only if it isn't already present or there is a new update available.
 
 The run command will also generate a default config file by the name of `config.yaml` within the same working directory if it doesn't already exist. If you already had a `config.yaml` present, it will load that instead.
 
-Optionally you can also direct space cloud to use a `config.yaml` from any location. You can do that by running:
+Optionally you can also direct Space Cloud to use a `config.yaml` from any location. You can do that by running:
 
 ```bash
 space-cloud run --dev --config /path/to/config.yaml
@@ -64,6 +64,6 @@ space-cloud run --dev --config /path/to/config.yaml
 
 The run command prints out the link to mission control. Open that link in a browser. You'll be greeted by a screen which prompts you to create a project. All Space Cloud knobs including the enterpise features and billing are available here. All development related features of Space Cloud are completely open source and always will be. I'll be explicit if I'm talking about an enterprise feature. 
 
-I'll be talking about how to use mission control to configure SC in the next video.]
+I'll be talking about how to use mission control to configure Space Cloud in the next topic.
 
 I hope everything worked perfectly well. You can follow the same process to download Space Cloud on the environment of your choice. 

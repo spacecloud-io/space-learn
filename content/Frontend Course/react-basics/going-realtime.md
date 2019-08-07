@@ -10,7 +10,7 @@ So we've got our entire app working.
 
 Congratulations for making it this far.
 
-Now its time to do some super cool things. And by that I mean, it's time to go realtime!
+Now it's time to do some super cool things. And by that I mean, it's time to go realtime!
 
 ## Configure Space Cloud
 
@@ -20,7 +20,7 @@ Space Cloud has built-in realtime module, which is enabled by default. There are
 
 There are some modifications which are required on the client side. The first one is how we fetch the todos. Instead of using the `db.get()` method. We will use the `db.liveQuery()`. It is more or less the same. The key difference is that, `db.get()` returns a **single response** while `db.liveQuery()` returns a **stream of responses**. Basically it will notify us whenever a document / record changes in our result set.
 
-I would highly recomment you to go through [the docs for live query](https://spaceuptech.com/docs/database/live-query) once to understands things better.
+I would highly recommend you to go through [the docs for live query](https://spaceuptech.com/docs/database/live-query) once to understand things better.
 
 The syntax for live query looks something like this:
 
