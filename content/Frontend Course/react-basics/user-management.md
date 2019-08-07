@@ -81,9 +81,9 @@ The `db.signIn()` function will get replaced with the `db.signUp()` which takes 
 The rest will remain exactly the same. The final signUp function will look like this:
 
 ```js
-async signUp(username, name, pass) {
+async signUp(email, name, pass) {
   // Fire the sign up request
-  const res = await this.db.signUp(username, name, pass, 'default');
+  const res = await this.db.signUp(email, name, pass, 'default');
 
   // Check if sign up was successfull
   if (res.status !== 200) {
