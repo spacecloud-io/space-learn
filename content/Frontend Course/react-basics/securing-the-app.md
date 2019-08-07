@@ -10,11 +10,11 @@ Well, we have got our app up and ready. But that doesn't mean we can deploy it s
 
 ## Security in Space Cloud
 
-You must have heard that security should never be an after thought. But in the entire process of making our app, we havent really spoken much about security.
+You must have heard that security should never be an after thought. But in the entire process of making our app, we haven't really spoken much about security.
 
 That is because we believe, **security must never be coupled with business logic**.
 
-Space Cloud has a very powerful and yet flexible security module which lets you secure your app without having to modify the exisiting code base. We do this my looking at **business logic as access control problems**.
+Space Cloud has a very powerful and yet flexible security module which lets you secure your app without having to modify the exisiting code base. We do this by looking at **business logic as access control problems**.
 
 Let's take the example of our todo app.
 
@@ -26,7 +26,7 @@ _A user can create, read, update or delete a todo only if the `userId` of the to
 
 Pretty straight forward right?
 
-The security rules, which you've heard me mention quite a few times helps us do exactly that. Remember the JWT Token we had set in `api.setToken()`? It's claims are available to us in the security rules. Along with the JWT claims, even the request is available to us in the security rules.
+The security rules, which you've heard me mention quite a few times helps us do exactly that. Remember the JWT Token we had set in `api.setToken()`? Its claims are available to us in the security rules. Along with the JWT claims, even the request is available to us in the security rules.
 
 In a nutshell the following variables are available in the security rules:
 

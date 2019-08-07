@@ -10,7 +10,7 @@ Till now we have got the sign in and sign up page working.
 
 In this topic we are going to dive into the most fun part, which is binding the todos with the database. For that we'll need to create a function to add, get, update and delete a todo.
 
-We'll store all our todos in the `todos` colelction. Our single todo object will look something like this:
+We'll store all our todos in the `todos` collection. Our single todo object will look something like this:
 
 ```json
 {
@@ -31,7 +31,7 @@ Create an async addTodo function which will take in the text of the todo. First 
 const obj = { _id: this.generateId(), value: value, isCompleted: false, userId: this.userId }
 ```
 
-Now let's call the `db.insert()` function. We need to pass the name of the collection or table. Its going to be todos in our case. If you are running this with a SQL database, make sure you create a table named `todos` before proceeding.
+Now let's call the `db.insert()` function. We need to pass the name of the collection or table. It's going to be todos in our case. If you are running this with a SQL database, make sure you create a table named `todos` before proceeding.
 
 Next we pass the object to be inserted and fire the query. 
 
@@ -89,7 +89,7 @@ return { ack: true };
 
 2 down, two more to go.
 
-# Update Todo Operation
+## Update Todo Operation
 
 Update is pretty much similar to delete. Everything will mostly remain the same. Along with the todo id, we'll also need the isCompleted field because that's what we will be updating. Our condition will be exactly the same. 
 
@@ -266,7 +266,7 @@ import client from '../../client';
 
 ### Add Todo
 
-Now inside the addTodo handler, we'll call the `client.addTodo()` function and pass the value variable. Once this promise completes, check for errors and then append the newly inserted to-do to the list.
+Now inside the addTodo handler, we'll call the `client.addTodo()` function and pass the value variable. Once this promise completes, check for errors and then append the newly inserted todo to the list.
 
 ```js
 const addTodo = () => {
@@ -283,7 +283,7 @@ const addTodo = () => {
 ```
 
 ### Delete Todo
-Similarly in the delete todo we'll call the delete todo function, pass the, provided id and if everything goes well, we'll filter out the todo from our state.
+Similarly in the delete todo we'll call the delete todo function, pass the provided id and if everything goes well, we'll filter out the todo from our state.
 
 ```js
 const deleteTodo = id => {

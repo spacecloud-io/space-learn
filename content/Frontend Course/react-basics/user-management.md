@@ -20,7 +20,7 @@ Call the `db.signIn()` function. Pass the `username` and `password` fields. This
 const res = await this.db.signIn(username, pass);
 ```
 
-We need to check is the status code is 200, that's for an ok http response. The response code is present in `res.status`. If it's not 200, we'll return an object with ack false.
+We need to check if the status code is 200, that's for an ok http response. The response code is present in `res.status`. If it's not 200, we'll return an object with ack false.
 
 If it is 200, we have logged in successfully. In the response object we receive a JWT token in `res.data.token` which will be used to authenticate against space cloud. So lets instruct the space api to use it.
 
@@ -74,7 +74,7 @@ async login(username, pass) {
 
 ## Sign Up Operation
 
-The sign up function is more or less the same so lets simply copy our login function and rename it. We'll need an additional parameter called name as well
+The sign up function is more or less the same so lets simply copy our login function and rename it. We'll need an additional parameter called name as well .
 
 The `db.signIn()` function will get replaced with the `db.signUp()` which takes 4 parameters, `email`, `name`, `password` and `role`. Since we don't really need roles in this app, we'll stick to `default`.
 
@@ -158,4 +158,4 @@ Cool. Works like a charm!
 
 Play around with it a little. Try putting in incorrect passwords or sign up with an existing email.
 
-That's a lot of work in one video. Great job buddy. The next one is adding, fetching, deleting and updating todos. So it will be covering the entire database module more or less. Things are starting to get really exciting.
+That's a lot of work in one topic. Great job buddy. The next one is adding, fetching, deleting and updating todos. So it will be covering the entire database module more or less. Things are starting to get really exciting.

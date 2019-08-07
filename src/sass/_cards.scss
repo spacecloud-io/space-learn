@@ -6,8 +6,12 @@
     padding: 24px;
     cursor: pointer;
 
-    .card-graphic {
-      height: 60px;
+    .card-img {
+      // display: flex;
+      // align-items: center;
+      .card-graphic {
+        height: 60px;
+      }
     }
 
     .card-desc {
