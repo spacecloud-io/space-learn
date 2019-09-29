@@ -10,7 +10,7 @@ Now that we have Space Cloud up and running, we need to configure it for our pro
 
 ## Create a Space Cloud Project
 
-Open mission control. Click on create a project. Give it a name `todo-app` and select Mongo DB as the default database. You cannot change the project id once a project is created. We'll be using it on the frontend to initialise the client api as well.
+Open mission control. Click on create a project. Give it a name `todo_app` and select Mongo DB as the default database. You cannot change the project id once a project is created. We'll be using it on the frontend to initialise the client api as well.
 
 This will create a project for us.
 

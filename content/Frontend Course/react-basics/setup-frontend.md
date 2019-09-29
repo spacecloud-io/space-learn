@@ -117,14 +117,14 @@ class Service {
 export default Service;
 ```
 
-Now inside the `src` folder, we'll create a `client.js` file. Let's import our service class and create a service object. We also need to export this object. The project id is `todo-app`. The url is the location where Space Cloud is running which is `http://localhost:4122`.
+Now inside the `src` folder, we'll create a `client.js` file. Let's import our service class and create a service object. We also need to export this object. The project id is `todo_app`. The url is the location where Space Cloud is running which is `http://localhost:4122`.
 
 So our `client.js` file will look something like this:
 
 ```js
 import Service from './services/service';
 
-const client = new Service('todo-app','http://localhost:4122');
+const client = new Service('todo_app','http://localhost:4122');
 export default client;
 ```
 
