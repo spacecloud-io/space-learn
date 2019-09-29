@@ -94,6 +94,29 @@ constructor(projectId, url) {
 }
 ```
 
+Our final `service.js` file will look like this.
+
+```js
+import { API } from 'space-api';
+
+class Service {
+  constructor(projectId, url) {
+    this.api = new API(projectId, url);
+    this.db = this.api.Mongo();
+  }
+
+  generateId = () => {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+      var r = (Math.random() * 16) | 0,
+        v = c == "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  };
+}
+
+export default Service;
+```
+
 Now inside the `src` folder, we'll create a `client.js` file. Let's import our service class and create a service object. We also need to export this object. The project id is `todo-app`. The url is the location where Space Cloud is running which is `http://localhost:4122`.
 
 So our `client.js` file will look something like this:
