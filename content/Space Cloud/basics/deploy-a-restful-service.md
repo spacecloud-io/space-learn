@@ -23,54 +23,75 @@ When running on Kubernetes, Space Cloud gives you the following benefits:
 
 ## Setting up the Nodejs Project
 
-We'll setup a simple nodejs project which has the following:
+We'll setup a simple http server which has the following:
 - An endpoint to add two numbers.
 - An endpoint to double the number provided.
 - An endpoint which simply logs the request it receives.
 
-> **Note:** You do not need to have Nodejs installed to follow this guide.
 
-To speeds things up we have already setup a Nodejs project for you. You can get it by simply cloning our repo.
+To speeds things up we have already a [docker image]() [link to docker hub page].
 
-[we can eliminate this git repo step if you want]
+The server has the following endpoints
 
-```bash
-git clone https://github.com/spaceuptech/learn-sample-apps
-```
+<br>
 
-This repo has a bunch of sample apps for you to explore. For now we are interested in the `nodejs-basics` directory. Open the terminal in this directory.
+Method  | URL                 | Request Body                      | Response Body 
+---     | ---                 | ---                               | --- 
+`GET`   | `/add/:num1/:num2`  | `N/A`                             | `{"value": RESULT }` 
+`POST`  | `/double`           | `{"value": VALUE_TO_BE_DOUBLED}`  | `{"value": RESULT }` 
+`POST`  | `/logger`           | `ANY JSON OBJECT`                 | `{}` 
 
-We have the following nodejs file already setup for you.
-
-```javascript
-Nodejs file goes here
-```
-
-It also has a Dockerfile present which will help us containerize this Nodejs app.
-
-```Dockerfile
-Docker file content goes here
-```
 
 ## Deploying the app
 
-Deploying an app on Space Cloud is as simple as running a single command.
-```bash
-space-cli deploy
-```
+Head over to the `Deployments` section in the `Microservices` tab.
 
-> **Note:** Make sure the `space-cli` executable is available in the current directory.
+You'll be greeted by a screen like this.
 
-It will ask you a bunch of question which should be pretty straighforward to answer. Make sure you set the service id to `node-app`. We'll be using this in the next step.
+[ Empty deployment screen ]
 
-Once you are done, `space-cli` will build a Docker image and deploy the app on Space Cloud.
+Click on `Deploy your first service` button. You'll see a form to deploy a service.
 
-> **Note:** In a production environment, you would rather push the image to a registry and use the `space-cli apply` command instead.
+You'll need to provided the following details:
+
+Service Id  | Docker Image                | Port
+---         | ---                         | ---
+`myapp`     | `spaceuptech/basic-service` | `8080` with the protocol set to `HTTP`
+
+The filled up form would look like this:
+
+[ Image of filled up form ]
+
+> **Note:** You can explore the `advanced setting` tab to explore the other knobs you have.
 
 ## Verify the deployment
 
-Run the following command to verify if the container started successfully.
+Go on the `Deployments` section in the `Microservices` tab and hit refresh. You should see your app right there!
 
-```bash
-docker ps --filter='name=space-cloud'
-```
+## Expose your API
+
+Currently, the node app is accessible from within the cluster only. We will have to add `Space Cloud Routes` in order to expose our service to the outside world.
+
+Lets head over to the `Routing` section in the `Microservices` tab in `Mission Control`. Wow! thats a mouthful!!
+
+Hit `Create your first route`.
+
+We'll simply redirect all non Space Cloud traffic to our service for now.
+
+Fill up the form as shown below:
+
+[ Screen of filled up form ]
+
+Once your done, hit `Add`.
+
+To verify, simply open your browser and type `http://localhost:4122/add/1/2`.
+
+You should see `3` on the screen.
+
+## Next steps
+
+Awesome! We just deployed and exposed our first docker container!!!
+
+There is a lot more we can do with `Deployments`. Space Cloud has amazing features like _autoscaling_, _service communication policies_, _secret management_, etc. built into it. Don't worry, we'll be covering all of these in another guide.
+
+Continue to the next guide to create a GraphQL API on top of our service.

@@ -26,7 +26,6 @@ We'll be going through the following guides in this track:
 - Setting up Space Cloud on our local computer using Docker
 - Adding a database and querying it using auto-generated GraphQL APIs
 - Write a restful service and deploy it on Space Cloud
-- Add custom logic to run on database events
 - Expose our Restful APIs via. Graphql
 - Explore some GraphQL Awesomeness
 

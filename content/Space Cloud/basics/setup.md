@@ -79,7 +79,7 @@ You'll be greated by a sscreen like this one:
 
 Hit on the `Create a Project` button.
 
-Enter a project name. You can stick to `My Serverless App` for this one.
+Enter a project name. You can stick to `MyProject` for this one.
 
 [Create project screen with name goes here]
 
