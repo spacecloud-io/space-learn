@@ -29,8 +29,7 @@ function isEmail(email) {
       if (email.hasClass('valid'  )) {
         $("#subscribeBtn").addClass("submit-request");
         $("#subscribeBtn").addClass("loading-active");
-        //fetch("https://spaceuptech.com/v1/site/subscribe", {
-        fetch("http://localhost:4122/v1/site/subscribe", {
+        fetch("https://spaceuptech.com/v1/site/subscribe", {
           method: 'POST',
           body: JSON.stringify({ email: email.val(), tags: ["newsletter"] }),
           headers: { 'Content-Type': 'application/json' }
