@@ -51,10 +51,16 @@ We can setup all Space Cloud components using a single command.
 The `setup` command select `Docker` as a target by default and run all the containers required tp setup Space Cloud. On successful installation it will generate an output similar to this one:
 
 ```bash
-Output of space cloud setup command goes here
+INFO[0000] Setting up space cloud on docker
+INFO[0000] Starting container space-cloud-gateway...
+INFO[0000] Starting container space-cloud-runner...
+INFO[0001] Space Cloud (id: "local-admin") has been successfully setup! :D
+INFO[0001] You can visit mission control at http://localhost:4122/mission-control
+INFO[0001] Your login credentials: [username: "local-admin"; key: "kUkqBffI1ISR"]
 ```
 
-> **Note:** You can learn more about the `space-cli setup` command from [here]() link to the docs.
+<!-- > **Note:** You can learn more about the `space-cli setup` command from [here]() link to the docs. -->
+
 ## Verify Installation
 
 Verify the installation run the following docker command
@@ -66,12 +72,14 @@ docker ps --filter=name=space-cloud
 You should see an output similar to this!
 
 ```
-Output of the command goes here
+CONTAINER ID        IMAGE                 COMMAND             CREATED              STATUS              PORTS                    NAMES
+1263f8ab1372        spaceuptech/runner    "./app start"       About a minute ago   Up About a minute                            space-cloud-runner
+35f820b550c7        spaceuptech/gateway   "./app run"         About a minute ago   Up About a minute   0.0.0.0:4122->4122/tcp   space-cloud-gateway
 ```
 
 ## Creating your first project
 
-Now that we have got Space Cloud setup we can open `Mission Control` (Space cloud's admin UI) on `http://localhost:4122/mission-control`.
+Now that we have got Space Cloud setup we can open `Mission Control` (Space cloud's admin UI) on [http://localhost:4122/mission-control](http://localhost:4122/mission-control).
 
 You'll be greated by a sscreen like this one:
 

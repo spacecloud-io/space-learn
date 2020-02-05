@@ -160,7 +160,7 @@ Now let me show you something way cooler. Have a look at the query below!
 {{< highlight graphql >}}
 query {
   add(num1: 1, num2: 2) @myapp {
-    double(value: "add.value") {
+    double(value: "add.value") @myapp {
       value
     }
   }

@@ -78,6 +78,12 @@ Hit `Create your first route`.
 
 We'll simply redirect all non Space Cloud traffic to our service for now.
 
+You'll need to provide the following details:
+
+Route Matching Type  | Prefix   | Target Host | Target Port
+---         | ---                         | --- | ----
+`Prefix Match`     | `/` | `myapp.myproject.svc.cluster.local`  | 8080
+
 Fill up the form as shown below:
 
 [ Screen of filled up form ]

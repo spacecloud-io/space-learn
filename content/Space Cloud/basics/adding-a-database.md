@@ -47,7 +47,7 @@ Let's head over to the `Database` section in `Mission Control`. It will prompt y
 
 [ Add database screen should go here ]
 
-Make sure you have the write connection string. Replace `localhost` with the ip address we noted earlier. My final connection string looks like `put final connection string here`.
+Make sure you have the write connection string. Replace `localhost` with the ip address we noted earlier. My final connection string looks like `postgres://postgres:mysecretpassword@172.17.0.4:5432/postgres?sslmode=disable`.
 
 Hit the `Add Database` button to add the database. If everything goes will, you should see a screen like this:
 
