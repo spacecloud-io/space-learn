@@ -1,3 +1,6 @@
 baseURL = "https://learn.spaceuptech.com"
 languageCode = "en-us"
 title = "Learn"
+
+[markup.goldmark.renderer]
+unsafe=true
