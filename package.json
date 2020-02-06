@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "sass src/sass/app.scss:static/css/app.css --style compressed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
