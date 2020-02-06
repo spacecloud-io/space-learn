@@ -2,3 +2,4 @@
 *.css.map
 static/css/app.css
 public
+node_modules
