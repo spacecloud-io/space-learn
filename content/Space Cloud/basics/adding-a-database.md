@@ -18,7 +18,7 @@ Let's explore some awesome powers of Space Cloud. In this guide, we will:
 ## Adding Postgres to our project
 
 ### Start a local Postgres instance
-First step would be starting a local Postgres instance. Since we already have docker installed, let's go forward using that.
+The first step would be starting a local Postgres instance. Since we already have docker installed, let's go forward using that.
 
 Run the following command in a terminal
 
@@ -28,30 +28,36 @@ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:54
 
 It might take some time if you did not have the postgres image cached locally.
 
-Once you have started postgres, we need to inspect its ip address. We'll need this to make sure Space Cloud can reach postgres.
+Once you have started postgres, we need to inspect its IP address. We'll need this to make sure Space Cloud can reach postgres.
 
 ```bash
 docker inspect some-postgres | grep -i '"IPAddress"' | head -1
 ```
 
-You'll a response similar to the following:
+You'll get a response similar to the following:
 ```bash
             "IPAddress": "172.17.0.4",
 ```
 
-Note the value of the `IPAddress` field. In my case its `172.17.0.4`.
+Note the value of the `IPAddress` field. In my case it's `172.17.0.4`.
 
 ### Add Postgres to our Space Cloud project
 
-Let's head over to the `Database` section in `Mission Control`. It will prompt you to add a database.
+Let's head over to the `Database` tab of `Storage` section in `Mission Control`. It will prompt you to add a database. Click on the `Add Database` button to open the following form:
 
-[ Add database screen should go here ]
+![Add Database screen](/images/screenshots/add-database.png)
 
-Make sure you have the write connection string. Replace `localhost` with the ip address we noted earlier. My final connection string looks like `postgres://postgres:mysecretpassword@172.17.0.4:5432/postgres?sslmode=disable`.
+Select `POSTGRESQL` as the database.
+
+Make sure you have the right connection string. Replace `localhost` with the IP address we noted earlier. My final connection string looks like:
+
+```bash
+postgres://postgres:mysecretpassword@172.17.0.4:5432/postgres?sslmode=disable
+```
 
 Hit the `Add Database` button to add the database. If everything goes will, you should see a screen like this:
 
-[Database overview page goes here]
+![DB Overview Screen](/images/screenshots/db-overview.png)
 
 ## Create tables
 
@@ -93,7 +99,7 @@ type pokemon {
 
 Let's insert some trainers along with their pokemons.
 
-Head over to the `API Explorer` section in `Mission Control`:
+Head over to the `API Explorer` tab in `Mission Control`:
 
 ![API Explorer](/images/screenshots/explorer.png)
 
@@ -189,12 +195,12 @@ The response should look something like this:
 }
 {{< /highlight >}}
 
-The above query performs a join and returns us the joint results. Similarly you can perform several types of joins including _joining database results with the response of your services_.
+The above query performs a join and returns us the joint result. Similarly, you can perform several types of joins, including _joining database results with the response of your services_.
 
-You can read more about the [different types of database query you can perform from the docs]() [end link to queries page].
+You can read more about the [different types of database query you can perform from the docs](https://docs.spaceuptech.com/essentials/queries/).
 
 ## Next Steps
 
 Awesome! We have just started our Pokemon journey _without writing a single line of backend code_. The journey ahead is undoubtedly going to be super exciting!
 
-Continue to the next guide to deploy a Restful Nodejs app using space-cli.
+Continue to the next guide to deploy a dockerized Restful Nodejs app using Mission Control.

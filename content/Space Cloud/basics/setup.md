@@ -6,12 +6,13 @@ draft: false
 weight: 2
 ---
 
-The first step to start using Space Cloud is setting up. Space Cloud requires several components to be running for proper functions. The most notable components are:
+The first step to start using Space Cloud is setting it up. Space Cloud requires several components to be running for proper functions. The most notable components are:
+
 - **Gateway:** Responsible for ingress traffic and generation of REST / GaphQL APIs
 - **Runner:** Responsible for intra cluster traffic and policy enforcement
-- **Container Registry:** Responsible for storing docker images. We won't be needing this for a local setup.
+- **Container Registry:** Responsible for storing docker images. We won't be needing this for local setup.
 
-Luckily, we don't have to directly interact with these components in most use cases. Space Cloud ships with a utility named `space-cli` which will bootstrap a cluster for us.
+Luckily, we don't have to interact with these components in most use cases directly. Space Cloud ships with a utility named `space-cli` which will bootstrap a cluster for us.
 
 ## Prerequisites
 
@@ -19,36 +20,37 @@ Luckily, we don't have to directly interact with these components in most use ca
 
 ## Downloading Space CLI
 
-The first step is downloading `space-cli`. You can dowload a version for your particular platform:
-- Linux [link for linux]
-- MacOS [link for mac os]
-- Windows [Link for windows]
+The first step is downloading `space-cli`. You can download a version for your particular platform:
 
-You can unzip the compressed archive.
+- [Linux](https://spaceuptech.com/downloads/linux/space-cli.zip)
+- [MacOS](https://spaceuptech.com/downloads/darwin/space-cli.zip)
+- [Windows](https://spaceuptech.com/downloads/windows/space-cli.zip)
 
-**For Linux / Mac:** `unzip space-cloud.zip && chmod +x space-cloud`
+Unzip the compressed archive.
+
+**For Linux / Mac:** `unzip space-cli.zip && chmod +x space-cli`
 
 **For Windows:** Right-click on the archive and select `extract here`.
 
-To make sure if space-cloud binary is correct, type the following command from the directory where space-cloud is downloaded:
+To make sure if space-cli binary is correct, type the following command from the directory where space-cli is downloaded:
 
-**For Linux / Mac:** `./space-cloud -v`
+**For Linux / Mac:** `./space-cli -v`
 
-**For Windows:** `space-cloud.exe -v`
+**For Windows:** `space-cli.exe -v`
 
 This will print the `space-cli` version.
 
-> Optionally, you can copy the `space-cli` binary to your environment path variable gor global usage.
+> Optionally, you can copy the `space-cli` binary to your environment path variable for global usage.
 
 ## Setting up Space Cloud
 
-We can setup all Space Cloud components using a single command.
+We can set up all Space Cloud components using a single command.
 
 ```bash
 ./space-cli setup --dev
 ```
 
-The `setup` command select `Docker` as a target by default and run all the containers required tp setup Space Cloud. On successful installation it will generate an output similar to this one:
+The `setup` command selects `Docker` as a target by default and runs all the containers required to setup Space Cloud. On successful installation it will generate an output similar to this one:
 
 ```bash
 INFO[0000] Setting up space cloud on docker
@@ -63,7 +65,7 @@ INFO[0001] Your login credentials: [username: "local-admin"; key: "kUkqBffI1ISR"
 
 ## Verify Installation
 
-Verify the installation run the following docker command
+Verify the installation run the following docker command:
 
 ```bash
 docker ps --filter=name=space-cloud
@@ -79,26 +81,28 @@ CONTAINER ID        IMAGE                 COMMAND             CREATED           
 
 ## Creating your first project
 
-Now that we have got Space Cloud setup we can open `Mission Control` (Space cloud's admin UI) on [http://localhost:4122/mission-control](http://localhost:4122/mission-control).
+Now that we have got Space Cloud setup, we can open `Mission Control` (Space cloud's admin UI) on [http://localhost:4122/mission-control](http://localhost:4122/mission-control).
 
-You'll be greated by a sscreen like this one:
+You will be greeted by a screen like this:
 
-[Home screen goes here]
+![Welcome Screen](/images/screenshots/welcome.png)
 
-Hit on the `Create a Project` button.
+Hit on the `CREATE A PROJECT` button to open the following page:
+
+![Create Project Screen](/images/screenshots/create-project.png)
 
 Enter a project name. You can stick to `MyProject` for this one.
 
-[Create project screen with name goes here]
-
 Hit the `Create Project` button.
 
-Mission Control will ask for setting up a database now. If you already have one, feel free to configure it. For now we'll skip this step since we don't have a database running at this point
+Mission Control will ask for setting up a database now:
 
-[Add database screen goes here]
+![Add Database Screen](/images/screenshots/create-project-add-database-step.png)
+
+If you already have one, feel free to configure it. For now, we'll skip this step since we don't have a database running at this point.
 
 ## Next Steps
 
-Great! We successfuly set up space cloud on doker and created our first project with it.
+Great! We successfully set up a Space Cloud on Docker and created our first project with it.
 
-Continue to the next guide to add a database to our newly created project and play perform some queries on it.
+Continue to the next guide to add a database to our newly created project and perform some queries on it.

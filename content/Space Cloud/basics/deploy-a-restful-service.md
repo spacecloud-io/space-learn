@@ -1,58 +1,61 @@
 ---
 title: Deploying a Restful Service
-description: Lets see how to deploy a restful service on Space Cloud
+description: Let's see how to deploy a restful service on Space Cloud
 date: 2020-01-21T00:00:00+05:30
 draft: false
 weight: 4
 ---
 
-Not everthing can be achieved by CRUD operations. Sometimes we need to write some backend code in order to get some work done.
+Not everything can be achieved by CRUD operations. Sometimes we need to write some backend code to get some work done.
 
-In this guide we will:
-- Deploy a Nodejs service using the `space-cli`
+In this guide, we will:
+
+- Deploy a docker container of a Restful service using the `Mission Control`
 - Expose the APIs by setting up `Space Cloud Routes`.
 
-> **Note:** You can deploy any language on Space Cloud as long as you have a Dockerfile accompanying it.
+> **Note:** You can deploy any service on Space Cloud as long as you can dockerize it using a Dockerfile.
 
 ## Advantage of deploying with Space Cloud
 When running on Kubernetes, Space Cloud gives you the following benefits:
+
 - Complete end to end encryption.
-- Advanced deployment patterns like Blue / Green Deployment, A/B Tests, etc.
+- Advanced deployment patterns like Blue/Green Deployment, A/B Tests, etc.
 - Advanced service to service authentication policies.
 - Autoscaling including scaling down to zero.
 
 ## Setting up the Nodejs Project
 
-We'll setup a simple http server which has the following:
+We'll set up a simple HTTP server which has the following:
+
 - An endpoint to add two numbers.
 - An endpoint to double the number provided.
 - An endpoint which simply logs the request it receives.
 
 
-To speeds things up we have already a [docker image]() [link to docker hub page].
+To speeds things up, we have already a [docker image](https://hub.docker.com/r/spaceuptech/basic-service).
 
-The server has the following endpoints
+Following are the endpoints of our REST service:
 
 <br>
 
 Method  | URL                 | Request Body                      | Response Body 
 ---     | ---                 | ---                               | --- 
-`GET`   | `/add/:num1/:num2`  | `N/A`                             | `{"value": RESULT }` 
+`GET`   | `/add/:num1/:num2`  | N/A                            | `{"value": RESULT }` 
 `POST`  | `/double`           | `{"value": VALUE_TO_BE_DOUBLED}`  | `{"value": RESULT }` 
 `POST`  | `/logger`           | `ANY JSON OBJECT`                 | `{}` 
 
 
 ## Deploying the app
 
-Head over to the `Deployments` section in the `Microservices` tab.
+Head over to the `Deployments` tab in the `Microservices` section.
 
 You'll be greeted by a screen like this.
 
-[ Empty deployment screen ]
+![Deployments Overview Screen](/images/screenshots/deployments-overview.png)
 
-Click on `Deploy your first service` button. You'll see a form to deploy a service.
+Click on `Deploy your first container` button. You'll see a form to deploy a service.
 
-You'll need to provided the following details:
+You'll need to provide the following details:
 
 Service Id  | Docker Image                | Port
 ---         | ---                         | ---
@@ -60,19 +63,19 @@ Service Id  | Docker Image                | Port
 
 The filled up form would look like this:
 
-[ Image of filled up form ]
+![Deployments Overview Screen](/images/screenshots/deploy-basic-service.png)
 
-> **Note:** You can explore the `advanced setting` tab to explore the other knobs you have.
+> **Note:** You can explore the `Advanced` tab to explore the other knobs you have.
 
 ## Verify the deployment
 
-Go on the `Deployments` section in the `Microservices` tab and hit refresh. You should see your app right there!
+After submitting the form, hit refresh. You should see your app right there!
 
 ## Expose your API
 
-Currently, the node app is accessible from within the cluster only. We will have to add `Space Cloud Routes` in order to expose our service to the outside world.
+Currently, the REST service we deployed is accessible from within the cluster only. We will have to add `Space Cloud Routes` to expose our service to the outside world.
 
-Lets head over to the `Routing` section in the `Microservices` tab in `Mission Control`. Wow! thats a mouthful!!
+Let's head over to the `Routing` section in the `Microservices` tab in `Mission Control`. 
 
 Hit `Create your first route`.
 
@@ -84,19 +87,27 @@ Route Matching Type  | Prefix   | Target Host | Target Port
 ---         | ---                         | --- | ----
 `Prefix Match`     | `/` | `myapp.myproject.svc.cluster.local`  | 8080
 
-Fill up the form as shown below:
+Fill up the form, as shown below:
 
-[ Screen of filled up form ]
+![Routing Form](/images/screenshots/expose-basic-service.png)
 
-Once your done, hit `Add`.
+Once you are done, hit `Add`.
 
-To verify, simply open your browser and type `http://localhost:4122/add/1/2`.
+To verify that our REST service is exposed, simply open your browser and type:
+```bash
+http://localhost:4122/add/1/2
+```
 
-You should see `3` on the screen.
+You should be able to see the following response on your screen:
+{{< highlight json >}}
+{
+  "value": 3
+}
+{{< /highlight >}}
 
 ## Next steps
 
-Awesome! We just deployed and exposed our first docker container!!!
+Awesome! We just deployed and exposed our first Docker container!!!
 
 There is a lot more we can do with `Deployments`. Space Cloud has amazing features like _autoscaling_, _service communication policies_, _secret management_, etc. built into it. Don't worry, we'll be covering all of these in another guide.
 
