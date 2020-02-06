@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "/opt/build/repo/build.sh"
+  command = "sass src/sass/app.scss:static/css/app.css --style compressed && hugo"
 [context.production.environment]
   HUGO_VERSION = "0.64.0"
   HUGO_ENV = "production"
