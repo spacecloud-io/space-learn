@@ -1,0 +1,22 @@
+{
+  "name": "space-learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saif-Ali-Kamal/space-learn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saif-Ali-Kamal/space-learn/issues"
+  },
+  "homepage": "https://github.com/Saif-Ali-Kamal/space-learn#readme",
+  "dependencies": {
+    "sass": "^1.25.0"
+  }
+}
