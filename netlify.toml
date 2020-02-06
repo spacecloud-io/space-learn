@@ -7,5 +7,7 @@
   HUGO_ENABLEGITINFO = "true"
 [context.branch-deploy.environment]
   HUGO_VERSION = "0.64.0"
+[context.branch-deploy]
+    command = "sass src/sass/app.scss:static/css/app.css --style compressed"
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.64.0" 
