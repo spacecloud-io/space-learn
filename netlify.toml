@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "npm install sass && hugo && sass src/sass/app.scss:static/css/app.css --style compressed"
+  command = "hugo"
 [context.production.environment]
   HUGO_VERSION = "0.64.0"
   HUGO_ENV = "production"
