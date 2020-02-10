@@ -46,12 +46,6 @@
         display: none;
       }
     }
-    #subscribeBtn {
-      background-color: #ff6700;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 8px;
-    }
   }
 
   .discord-logo {
@@ -69,4 +63,78 @@
   @media #{$large-and-up} {
     top: -10vw;
   }
+
+  #subscribeBtn{
+    background-color: #ff6700;
+    padding: 0px 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .loading-btn{
+    display: inline-block;
+    border: 1px solid #ff6700;
+    color: #fff !important;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: transparent;
+    outline: none;
+    transition: all ease 0.5s;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .loading-active{
+    font-size: 0;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: #1b4154;
+    animation: rotate 1.4s ease 0.5s infinite;
+    cursor: none;
+  }
+  
+  @keyframes rotate {
+      0%{
+        transform: rotate(360deg);
+      }
+    }
+  
+  .loading-sucess, .loading-error{
+    position: relative;
+    background-color: #fff;
+    animation: bounce .3s ease-in;
+  }
+  
+  @keyframes bounce {
+    0%{
+    transform: scale(0.9);
+    }
+  }
+  
+  .loading-sucess:before, .loading-error:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 31px;
+    height: 31px;
+    line-height: 31px;
+    top: 8px;
+  }
+  
+  .loading-sucess:before{
+    background: url(../images/check-solid.svg) no-repeat;
+  }
+  
+  .loading-error:before {
+    background: url(../images/cancel.svg) no-repeat;
+  }
+  
 }
