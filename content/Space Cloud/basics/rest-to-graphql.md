@@ -13,7 +13,7 @@ In this guide we will:
 - Add a GraphQL Layer on top of our existing rest service
 - Enjoy the GraphQL awesomeness😋
 
-> **Note:** Make sure you have followed all the guides in the `Space Cloud Basics` track. We'll be building up from there.
+> **Note:** Make sure you have followed the [Setup Space Cloud](/space-cloud/basics/setup) and [Deploying a Service](/space-cloud/basics/deploy-a-service) guides in the `Space Cloud Basics` track. We'll be building up from there.
 
 We'll be using the following two endpoints from our `myapp` service.
 

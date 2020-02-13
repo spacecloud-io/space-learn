@@ -1,5 +1,5 @@
 ---
-title: Deploying a Restful Service
+title: Deploying a Service
 description: Let's see how to deploy a restful service on Space Cloud
 date: 2020-01-21T00:00:00+05:30
 draft: false
