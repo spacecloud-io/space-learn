@@ -13,7 +13,7 @@ In this guide, we will:
 - Deploy a docker container of a Restful service using the `Mission Control`
 - Expose the APIs by setting up `Space Cloud Routes`.
 
-> **Note:** You can deploy any service on Space Cloud as long as you can dockerize it using a Dockerfile.
+> **Note:** Make sure you have followed the [Setup Space Cloud](/space-cloud/basics/setup) guide in the `Space Cloud Basics` track. We'll be building up from there.
 
 ## Advantage of deploying with Space Cloud
 When running on Kubernetes, Space Cloud gives you the following benefits:
@@ -23,7 +23,7 @@ When running on Kubernetes, Space Cloud gives you the following benefits:
 - Advanced service to service authentication policies.
 - Autoscaling including scaling down to zero.
 
-## Setting up the Nodejs Project
+## Setting up the Project
 
 We'll set up a simple HTTP server which has the following:
 
