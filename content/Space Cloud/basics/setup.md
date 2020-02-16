@@ -73,7 +73,7 @@ docker ps --filter=name=space-cloud
 
 You should see an output similar to this!
 
-```
+```bash
 CONTAINER ID        IMAGE                 COMMAND             CREATED              STATUS              PORTS                    NAMES
 1263f8ab1372        spaceuptech/runner    "./app start"       About a minute ago   Up About a minute                            space-cloud-runner
 35f820b550c7        spaceuptech/gateway   "./app run"         About a minute ago   Up About a minute   0.0.0.0:4122->4122/tcp   space-cloud-gateway
@@ -100,6 +100,8 @@ Mission Control will ask for setting up a database now:
 ![Add Database Screen](/images/screenshots/create-project-add-database-step.png)
 
 If you already have one, feel free to configure it. For now, we'll skip this step since we don't have a database running at this point.
+
+> **You can destroy the Space Cloud cluster along with all the deployments by running the `./space-cli destroy` command.**
 
 ## Next Steps
 
