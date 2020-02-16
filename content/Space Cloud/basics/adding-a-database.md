@@ -23,7 +23,7 @@ The first step would be starting a local Postgres instance. Since we already hav
 Run the following command in a terminal
 
 ```bash
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
 It might take some time if you did not have the postgres image cached locally.
