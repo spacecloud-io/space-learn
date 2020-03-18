@@ -79,7 +79,7 @@ type trainer {
 }
 {{< /highlight >}}
 
-> **Note:** Don't worry if this syntax is new to you. It is GraphQL SDL which Space Cloud uses to create tables for you. You can read more about it later from [here](/essentials/data-modelling).
+> **Note:** Don't worry if this syntax is new to you. It is GraphQL SDL which Space Cloud uses to create tables for you. You can read more about it later from [here](https://docs.spaceuptech.com/storage/database/data-modelling/).
 
 Similarly, to create a `pokemon` table, click on `Add Table` button once again.
 
@@ -197,7 +197,7 @@ The response should look something like this:
 
 The above query performs a join and returns us the joint result. Similarly, you can perform several types of joins, including _joining database results with the response of your services_.
 
-You can read more about the [different types of database query you can perform from the docs](https://docs.spaceuptech.com/essentials/queries/).
+You can read more about the [different types of database query you can perform from the docs](https://docs.spaceuptech.com/storage/database/queries/).
 
 ## Next Steps
 
