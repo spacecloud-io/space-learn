@@ -1,0 +1,7 @@
+DirectoryPath: "./public"
+EnforceHTTPS: true
+CacheExpires: "6h"
+IgnoreAltMissing: true
+CheckInternalHash: false
+CheckExternal: false
+IgnoreDirectoryMissingTrailingSlash: true
