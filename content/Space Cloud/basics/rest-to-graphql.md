@@ -3,7 +3,7 @@ title: Rest to GraphQL in minutes
 description: Let's see how to add a GraphQL layer on top of our restful services instantly
 date: 2020-01-21T00:00:00+05:30
 draft: false
-weight: 4
+weight: 5
 ---
 
 GraphQL is awesome! The prospect of a unified GraphQL layer for all your microservices and database really excites us. In this guide, we'll do precisely that.

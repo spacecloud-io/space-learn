@@ -13,33 +13,32 @@ Let's explore some awesome powers of Space Cloud. In this guide, we will:
 - Make trainers and catch Pokemons 😍 (Insert operation)
 - Retrieve all trainers along with their Pokemons 😎 (Join operation)
 
-> **Note:** You can use any other database Space Cloud supports for this guide. We are using Postgres since its simply awesome.
+> **You can use any other database Space Cloud supports for this guide. We are using Postgres since its simply awesome.** 
 
 ## Adding Postgres to our project
 
 ### Start a local Postgres instance
-The first step would be starting a local Postgres instance. Since we already have docker installed, let's go forward using that.
+The first step would be starting a local Postgres instance. Since we already have docker installed, that won't be much of a problem for us. We are going to use the `add database` command of `space-cli` to start a docker container of Postgres for us. 
 
 Run the following command in a terminal
 
 ```bash
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+space-cli add database postgres --alias postgres
 ```
-
+ 
 It might take some time if you did not have the postgres image cached locally.
 
-Once you have started postgres, we need to inspect its IP address. We'll need this to make sure Space Cloud can reach postgres.
+Once you have started Postgres, we need to know its IP address. Luckily, the `space-cli add database` command also creates a domain name for our database, which is of the following format:
 
 ```bash
-docker inspect some-postgres | grep -i '"IPAddress"' | head -1
+<alias-name>.db.svc.cluster.local
 ```
 
-You'll get a response similar to the following:
+Since we had set the `--alias` to `postgres` in the `add database` command, the domain name for our Postgres translates to:
+
 ```bash
-            "IPAddress": "172.17.0.4",
+postgres.db.svc.cluster.local
 ```
-
-Note the value of the `IPAddress` field. In my case it's `172.17.0.4`.
 
 ### Add Postgres to our Space Cloud project
 
@@ -49,13 +48,15 @@ Let's head over to the `Database` tab of `Storage` section in `Mission Control`.
 
 Select `POSTGRESQL` as the database.
 
-Make sure you have the right connection string. Replace `localhost` with the IP address we noted earlier. My final connection string looks like:
+Replace `localhost` with the domain name we noted earlier to get the final connection string as:
 
 ```bash
-postgres://postgres:mysecretpassword@172.17.0.4:5432/postgres?sslmode=disable
+postgres://postgres:mysecretpassword@postgres.db.svc.cluster.local:5432/postgres?sslmode=disable
 ```
 
-Hit the `Add Database` button to add the database. If everything goes will, you should see a screen like this:
+The alias name for Postgres is `postgres` by default. The alias name is used to identify the database in GraphQL queries. You can change it to whatever you want or keep it the same.
+
+Hit the `Add database` button to add the database. If everything goes well, you should see a screen like this:
 
 ![DB Overview Screen](/images/screenshots/db-overview.png)
 
@@ -94,7 +95,6 @@ type pokemon {
 }
 {{< /highlight >}}
 
-
 ## Making trainers and catching pokemons (insert operation)
 
 Let's insert some trainers along with their pokemons.
@@ -128,13 +128,16 @@ mutation {
     ]
   ) @postgres {
     status
+    error
   }
 }
 {{< /highlight >}}
 
+> **If `postgres` isn't the alias name that you have provided while adding the database in Mission Control, then you should replace it with your alias name in all the GraphQL queries.**
+
 On successful insert, you should be able to see the `status` as `200` which means you have inserted the records in the database successfully.
 
-> **Note:** You are inserting in two tables simultaneously in this operation. The query is executed as a single transaction.
+> **You are inserting in two tables simultaneously in this operation. The query is executed as a single transaction.** 
 
 ## Retrieve trainers along with their Pokemons (join operation) 
 
@@ -203,4 +206,4 @@ You can read more about the [different types of database query you can perform f
 
 Awesome! We have just started our Pokemon journey _without writing a single line of backend code_. The journey ahead is undoubtedly going to be super exciting!
 
-Continue to the next guide to deploy a dockerized Restful Nodejs app using Mission Control.
+Continue to the next guide to dockerize and deploy a Restful Nodejs app using Mission Control.
