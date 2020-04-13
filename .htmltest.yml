@@ -5,3 +5,5 @@ IgnoreAltMissing: true
 CheckInternalHash: false
 CheckExternal: false
 IgnoreDirectoryMissingTrailingSlash: true
+IgnoreDirs: 
+ - "tags"
