@@ -67,7 +67,7 @@ First of all, we need a docker registry that can host the docker images of our s
 space-cli --project myproject add registry
 {{< /highlight >}}
 
-> **In production, it is recommended to [use a managed container registry]()**
+> **In production, it is recommended to [use a managed container registry](https://docs.spaceuptech.com/microservices/deployments/using-custom-container-registry)**
 
 Now we need yo generate two files:
 
