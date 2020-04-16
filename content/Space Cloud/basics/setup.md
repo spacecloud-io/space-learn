@@ -22,9 +22,9 @@ Luckily, we don't have to interact with these components in most use cases direc
 
 The first step is downloading `space-cli`. You can download a version for your particular platform:
 
-- [Linux](https://storage.googleapis.com.com/space-cloud/linux/space-cli.zip)
-- [MacOS](https://storage.googleapis.com.com/space-cloud/darwin/space-cli.zip)
-- [Windows](https://storage.googleapis.com.com/space-cloud/windows/space-cli.zip)
+- [Linux](https://storage.googleapis.com/space-cloud/linux/space-cli.zip)
+- [MacOS](https://storage.googleapis.com/space-cloud/darwin/space-cli.zip)
+- [Windows](https://storage.googleapis.com/space-cloud/windows/space-cli.zip)
 
 Unzip the compressed archive.
 
