@@ -34,9 +34,9 @@ Unzip the compressed archive.
 
 To make sure if the `space-cli` binary is correct, type the following command from the directory where you have downloaded `space-cli`:
 
-**For Linux / Mac:** `./space-cli -v`
+**For Linux / Mac:** `./space-cli --version`
 
-**For Windows:** `space-cli.exe -v`
+**For Windows:** `space-cli.exe --version`
 
 This prints the `space-cli` version.
 
