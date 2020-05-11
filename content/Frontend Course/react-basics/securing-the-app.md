@@ -138,6 +138,6 @@ We have successfully completed this course. Hopefully your app is working and th
 
 As next steps you can:
 
-- Join our [discord server](https://discordapp.com/invite/ypXEEBr) to get in touch with us.
+- Join our [discord server](https://discord.gg/RkGjW93) to get in touch with us.
 - Checkout the other [courses](https://learn.spaceuptech.com) we have.
 - Start making your own app.
