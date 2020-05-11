@@ -18,9 +18,9 @@ The second one is deploying it via docker. The final one is manually downloading
 
 First things first, Space Cloud is distributed as a single executable. You can download the zip file for your OS from the links below:
 
-- [Linux](https://spaceuptech.com/downloads/linux/space-cloud.zip)
-- [Mac OS](https://spaceuptech.com/downloads/darwin/space-cloud.zip)
-- [Windows](https://spaceuptech.com/downloads/windows/space-cloud.zip)
+- [Linux](https://storage.googleapis.com/space-cloud/linux/space-cloud.zip)
+- [Mac OS](https://storage.googleapis.com/space-cloud/darwin/space-cloud.zip)
+- [Windows](https://storage.googleapis.com/space-cloud/windows/space-cloud.zip)
 
 
 The next step is to unzip the archive.
