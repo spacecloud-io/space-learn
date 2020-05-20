@@ -86,7 +86,7 @@
     box-sizing: border-box;
     background-color: transparent;
     outline: none;
-    transition: all ease 0.5s;
+    transition: all ease-in-out 0.5s;
     cursor: pointer;
     font-weight: 500;
     top: 5px;
@@ -100,8 +100,8 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border-left-color: #1b4154;
-    animation: rotate 1.4s ease 0.5s infinite;
+    border-left-color: #e4e4e4;
+    animation: rotate 1.4s ease-in-out 0.5s infinite;
     cursor: none;
     top: 5px;
     left: 5px;
@@ -116,7 +116,7 @@
   .loading-sucess, .loading-error{
     position: relative;
     background-color: #ff6700;
-    animation: bounce .3s ease-in;
+    animation: bounce .3s ease-in-out;
   }
   
   @keyframes bounce {

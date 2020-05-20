@@ -69,7 +69,18 @@ function isEmail(email) {
             },2000) 
             }
           })
-          .catch(e => console.log('subscribe to newsletter:', e));
+          .catch(e => {
+            console.log('subscribe to newsletter:', e)
+            setTimeout(()=>{
+              M.toast({ html: 'Error subscribing to newsletter' });
+              $("#loading").addClass(" loading-error");
+            },1500)
+            setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
+              $("#loading").removeClass("loading-error");
+              $("#subscribeBtn").css({"cursor": "not-allowed"});
+            },2000) 
+          });
       }
     })
   });
