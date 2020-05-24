@@ -39,46 +39,46 @@ function isEmail(email) {
           .then(res => {
             if(res.status === 400){
             setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
               M.toast({ html: 'Already subscribed to newsletter!' });
               $("#loading").addClass("loading-sucess");
             },1500)
             setTimeout(()=>{
-              $("#loading").removeClass("loading-active");
               $("#loading").removeClass("loading-sucess");
-              $("#subscribeBtn").css({"cursor": "not-allowed"});
+              $("#subscribeBtn").css({"cursor": ""});
             },3000)
           }else if (res.status === 'subscribed'){
             setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
               M.toast({ html: 'Subscribed to newsletter!' });
               $("#loading").addClass("loading-sucess");
             },1500)
             setTimeout(()=>{
-              $("#loading").removeClass("loading-active");
               $("#loading").removeClass("loading-sucess");
-              $("#subscribeBtn").css({"cursor": "not-allowed"});
+              $("#subscribeBtn").css({"cursor": ""});
             },3000)
             }else {
-            setTimeout(()=>{
+              setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
               M.toast({ html: 'Error subscribing to newsletter' });
               $("#loading").addClass(" loading-error");
             },1500)
             setTimeout(()=>{
-              $("#loading").removeClass("loading-active");
               $("#loading").removeClass("loading-error");
-              $("#subscribeBtn").css({"cursor": "not-allowed"});
+              $("#subscribeBtn").css({"cursor": ""});
             },2000) 
             }
           })
           .catch(e => {
             console.log('subscribe to newsletter:', e)
             setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
               M.toast({ html: 'Error subscribing to newsletter' });
               $("#loading").addClass(" loading-error");
             },1500)
             setTimeout(()=>{
-              $("#loading").removeClass("loading-active");
               $("#loading").removeClass("loading-error");
-              $("#subscribeBtn").css({"cursor": "not-allowed"});
+              $("#subscribeBtn").css({"cursor": ""});
             },2000) 
           });
       }
