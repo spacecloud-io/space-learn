@@ -28,8 +28,9 @@ function isEmail(email) {
       }
       if (email.hasClass('valid'  )) {
         $("#subscribeBtn").addClass("submit-request");
-        $("#subscribeBtn").addClass("loading-active");
-        fetch("https://spaceuptech.com/v1/site/subscribe", {
+        $("#loading").addClass("loading-active");
+        $("#subscribeBtn").css({"cursor": "not-allowed"});
+        fetch("https://api.spaceuptech.com/v1/site/subscribe", {
           method: 'POST',
           body: JSON.stringify({ email: email.val(), tags: ["newsletter"] }),
           headers: { 'Content-Type': 'application/json' }
@@ -38,31 +39,48 @@ function isEmail(email) {
           .then(res => {
             if(res.status === 400){
             setTimeout(()=>{
-              $("#subscribeBtn").removeClass("loading-active");
-              $("#subscribeBtn").removeClass("loading-sucess");
-            },3000)
-          }else if (res.status !== 'subscribed') {
-            setTimeout(()=>{
-              M.toast({ html: 'Error subscribing to newsletter' });
-              $("#subscribeBtn").addClass(" loading-error");
+              $("#loading").removeClass("loading-active");
+              M.toast({ html: 'Already subscribed to newsletter!' });
+              $("#loading").addClass("loading-sucess");
             },1500)
             setTimeout(()=>{
-              $("#subscribeBtn").removeClass("loading-active");
-              $("#subscribeBtn").removeClass("loading-error");
-            },2000)
-            return 
-            }else{
-              setTimeout(()=>{
+              $("#loading").removeClass("loading-sucess");
+              $("#subscribeBtn").css({"cursor": ""});
+            },3000)
+          }else if (res.status === 'subscribed'){
+            setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
               M.toast({ html: 'Subscribed to newsletter!' });
-              $("#subscribeBtn").addClass(" loading-sucess");
+              $("#loading").addClass("loading-sucess");
             },1500)
             setTimeout(()=>{
-              $("#subscribeBtn").removeClass("loading-active");
-              $("#subscribeBtn").removeClass("loading-sucess");
+              $("#loading").removeClass("loading-sucess");
+              $("#subscribeBtn").css({"cursor": ""});
             },3000)
-          }
+            }else {
+              setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
+              M.toast({ html: 'Error subscribing to newsletter' });
+              $("#loading").addClass(" loading-error");
+            },1500)
+            setTimeout(()=>{
+              $("#loading").removeClass("loading-error");
+              $("#subscribeBtn").css({"cursor": ""});
+            },2000) 
+            }
           })
-          .catch(e => console.log('subscribe to newsletter:', e));
+          .catch(e => {
+            console.log('subscribe to newsletter:', e)
+            setTimeout(()=>{
+              $("#loading").removeClass("loading-active");
+              M.toast({ html: 'Error subscribing to newsletter' });
+              $("#loading").addClass(" loading-error");
+            },1500)
+            setTimeout(()=>{
+              $("#loading").removeClass("loading-error");
+              $("#subscribeBtn").css({"cursor": ""});
+            },2000) 
+          });
       }
     })
   });
