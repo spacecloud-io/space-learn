@@ -49,7 +49,7 @@ What we did here is query our database and microservices in a single request. Si
 
 So does the magic ends here? Not really😛.
 
-## Chain our database and micorservice queries
+## Chain our database and microservice queries
 
 Have a look at this query:
 
