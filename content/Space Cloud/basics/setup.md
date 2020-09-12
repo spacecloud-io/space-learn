@@ -8,7 +8,7 @@ weight: 2
 
 The first step to start using Space Cloud is setting it up. Space Cloud requires several components to be running for proper functions. The most important components are:
 
-- **Gateway:** Responsible for ingress traffic and generation of REST / GaphQL APIs.
+- **Gateway:** Responsible for ingress traffic and generation of REST / GraphQL APIs.
 - **Runner:** Responsible for intracluster traffic and policy enforcement.
 - **Container Registry:** Responsible for storing docker images.
 
