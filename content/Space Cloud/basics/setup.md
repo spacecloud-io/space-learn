@@ -32,8 +32,9 @@ curl -sfL https://get.k3s.io | sh -s - server --disable traefik --docker
 Copy the config file for future use
 
 ```bash
-sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
-sudo chmod 775 ~/.kube/config
+sudo chmod 775 /etc/rancher/k3s/k3s.yaml
+mkdir ~/.kube
+cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ```
 
 ### Installing Kubernetes on Windows / MacOS
