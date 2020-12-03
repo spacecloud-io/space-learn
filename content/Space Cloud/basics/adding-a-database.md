@@ -23,18 +23,21 @@ The first step would be starting a local Postgres instance. Since we already hav
 Run the following command in a terminal
 
 ```bash
-space-cli add database postgres --alias postgres
+space-cli add database postgres --name postgres
 ```
  
-It might take some time if you did not have the postgres image cached locally.
+It might take some time if you did not have the postgres image cached locally. Run the following command to confirm if postgres is up:
 
+```bash
+kubectl get pods -n db
+```
 Once you have started Postgres, we need to know its IP address. Luckily, the `space-cli add database` command also creates a domain name for our database, which is of the following format:
 
 ```bash
-<alias-name>.db.svc.cluster.local
+<name>.db.svc.cluster.local
 ```
 
-Since we had set the `--alias` to `postgres` in the `add database` command, the domain name for our Postgres translates to:
+Since we had set the `--name` to `postgres` in the `add database` command, the domain name for our Postgres translates to:
 
 ```bash
 postgres.db.svc.cluster.local

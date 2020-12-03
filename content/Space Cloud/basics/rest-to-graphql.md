@@ -60,18 +60,18 @@ Hit the `Add your first endpoint` button.
 
 Fill up the form as shown below:
 
-Endpoint name   | Method  | Path                            | Rule
----             | ---     | ---                             | ---
-add             | `GET`   | `/add/{args.num1}/{args.num2}`  | Leave this as is
+Endpoint name   | Method  | Path                       
+---             | ---     | ---                           
+add             | `GET`   | `/add/{args.num1}/{args.num2}`
 
 
 Notice the `{args.num1}` and `{args.num2}` in the path? This is actually referring to the parameters being passed to the GraphQL query. Don't worry much about it for now. It will get clearer as we move forward.
 
 Now let's create the next endpoint for doubling the result. Enter the following in the form:
 
-Endpoint name   | Method  | Path                            | Rule
----             | ---     | ---                             | ---
-double          | `POST`  | `/double`                   | Leave this as is
+Endpoint name   | Method  | Path            
+---             | ---     | ---         
+double          | `POST`  | `/double`        
 
 Cool! That's about it! All that left's to do is playing around with the API we just created.
 

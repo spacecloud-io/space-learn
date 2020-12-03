@@ -10,8 +10,8 @@ Not everything can be achieved by CRUD operations. Sometimes we need to write so
 
 In this guide, we will:
 
-- Dockerize a RESTful service and deploy its docker container `space-cli`.
-- Expose the APIs of the REST service to the outer world by setting up `Space Cloud Routes`.
+- Deploy a dockerized app on Space Cloud.
+- Expose the APIs of the REST service to the outside world by setting up `Space Cloud Routes`.
 
 > **Note:** Make sure you have followed the [Setup Space Cloud](/space-cloud/basics/setup) guide in the `Space Cloud Basics` track. We'll be building up from there.
 
@@ -40,105 +40,27 @@ Following are the endpoints of our REST service:
 | `POST` | `/double`          | `{"value": VALUE_TO_BE_DOUBLED}` | `{"value": RESULT }` |
 | `POST` | `/logger`          | `ANY JSON OBJECT`                | `{}`                 |
 
-## Setting up the service
-
-To speed things up, we already written this HTTP server in NodeJS and published it to this [Space Cloud Samples Github repository](https://github.com/spaceuptech/space-cloud-samples/). We will be cloning and using just that here. 
-
-Cloning our samples repository:
-
-{{< highlight bash >}}
-git clone https://github.com/spaceuptech/space-cloud-samples.git
-{{< /highlight >}}
-
-
-Checkout into the folder of our HTTP server:
-
-{{< highlight bash >}}
-cd space-cloud-samples/basic-service
-{{< /highlight >}}
-
 ## Deploying the service
 
-Space Cloud can deploy only docker containers as of now. So we need to dockerize our app. We are going to take the help of `space-cli` to do that.
+Space Cloud can deploy only docker containers as of now. So we need to dockerize our app. To speed things up, we will deploy a pre-built image.
 
-First of all, we need a docker registry that can host the docker images of our service. Run this command to spin up a docker registry locally:
+Open `Microservices` > `Deployments` and hit the `Deploy your first container` button.
 
-{{< highlight bash >}}
-space-cli --project myproject add registry
-{{< /highlight >}}
+Our `Service ID` will be `myapp` and the `Version` will be `v1`.
 
-> **In production, it is recommended to [use a managed container registry](https://docs.spaceuptech.com/microservices/deployments/using-custom-container-registry)**
+![Adding a Deployment](/images/screenshots/add-service.png)
 
-Now we need yo generate two files:
+Now hit `Add Task` to add a container to our deployment. This is where we configure container level properties like _docker image_, _resource constraints_, etc.
 
-- `Dockerfile` - To build the docker image.
-- `service.yaml` - The service configuration (example: resources, auto-scaling, ports) to deploy this service via Space Cloud.
+Let the `Task ID` be `myapp` and `Docker container` be `spaceuptech/basic-service`. Also add a HTTP port `8080`.
 
-`space-cli` has a built-in command to generate both of these automatically for us. Just run the following command:
+![Adding a Task](/images/screenshots/add-task.png)
 
-{{< highlight bash >}}
-space-cli deploy --prepare
-{{< /highlight >}}
+Finally hit `Save` and watch our service get deployed.
 
-It is going to ask you a bunch of questions. Answer them with the following required values and leave the rest to default:
+> **It can take upto a minute or so for a service to get deployed.**
 
-| Project Id  | Service Id |
-|-------------|------------|
-| `myproject` | `myapp`    | 
-
-Great! We now have a `Dockerfile` and a `service.yaml`. Feel free to explore and change both these files before finally deploying the service. The `service.yaml` file looks something like this:
-
-{{< highlight yaml >}}
-api: /v1/runner/{project}/services/{id}/{version}
-type: service
-meta:
-  id: myapp
-  project: myproject
-  version: v1
-spec:
-  scale:
-    replicas: 1
-    minReplicas: 1
-    maxReplicas: 100
-    concurrency: 50
-    mode: parallel
-  labels: {}
-  tasks:
-  - id: myapp
-    ports:
-    - name: http
-      protocol: http
-      port: 8080
-    resources:
-      cpu: 250
-      memory: 512
-    docker:
-      image: localhost:5000/myproject-myapp:v1
-      cmd: []
-      secret: ""
-      imagePullPolicy: "pull-if-not-exists"
-    env: {}
-    secrets: []
-    runtime: image
-  affinity: []
-  whitelists:
-  - projectId: myproject
-    service: '*'
-  upstreams:
-  - projectId: myproject
-    service: '*'
-{{< /highlight >}}
-
-The only step left now is building the docker image and deploying it via Space Cloud. We are going to use the `deploy` command of `space-cli` for that. It first builds a docker image for us using the `Dockerfile` (generated in the above step) and then publishes it to the docker registry. Once it's done publishing, it uses the config in `service.yaml` file to deploy the service via Space Cloud.
-
-Enough of talking. Let's hit the magical command now:
-{{< highlight bash >}}
-space-cli deploy
-{{< /highlight >}}
-
-> **You  may have to run the above command with sudo privileges if your `docker` is not in the sudoer group.**
-
-Hurray! We just dockerized and deployed a REST service using Space Cloud. I know you might want to celebrate. But wait a min before you do that.
+Hurray! We just deployed a dockerized REST service using Space Cloud. I know you want to celebrate, but let's wait a min before we do that.
 
 ## Verify the deployment
 
@@ -176,8 +98,10 @@ Once you are done, hit `Add`.
 
 To verify that our REST service is exposed, simply open another tab in your browser and enter:
 ```bash
-http://localhost:4122/add/1/2
+http://localhost/add/1/2
 ```
+
+> **You may have to use `http://localhost:4122/add/1/2` depending on how you are running Space Cloud**
 
 You should be able to see the following response on your screen:
 {{< highlight json >}}
