@@ -8,15 +8,62 @@ weight: 2
 
 The first step to start using Space Cloud is setting it up. Space Cloud requires several components to be running for proper functions. The most important components are:
 
-- **Gateway:** Responsible for ingress traffic and generation of REST / GaphQL APIs.
-- **Runner:** Responsible for intracluster traffic and policy enforcement.
-- **Container Registry:** Responsible for storing docker images.
+- **Gateway:** Responsible for ingress traffic and generation of REST / GraphQL APIs.
+- **Runner:** Responsible for communicating with K8s and deploying your services.
 
-Luckily, we don't have to interact with these components in most use cases directly because Space Cloud ships with a utility named `space-cli` that bootstraps a cluster for us.
+Luckily, we don't have to interact with these components directly. Space Cloud ships with a utility named `space-cli` which bootstraps a cluster for us.
 
-## Prerequisites
+## Installing Kubernetes
 
-- Make sure you have [Docker installed](https://docs.docker.com/install/).
+Space Cloud uses Kubernetes under the hood to provide all its features. The first step to installing Space Cloud is getting a Kubernetes environment up and running.
+
+> Make sure you have [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and have added it to your `$PATH`.
+
+### Installing Kubernetes on Linux
+
+Install the latest version of [K3s](https://rancher.com/docs/k3s/latest/en/quick-start/).
+
+Start K3s:
+
+```bash
+curl -sfL https://get.k3s.io | sh -s - server --disable traefik --docker
+```
+
+Copy the config file for future use
+
+```bash
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chmod 775 ~/.kube/config
+```
+
+### Installing Kubernetes on Windows / MacOS
+
+Install the latest version of [Docker Desktop](https://www.docker.com/products/docker-desktop).
+
+> We recommend enabling WSL2 on Windows for the best experience. Refer to [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to enable WSL2 on Windows.
+
+**Don't forget to enable Kubernetes from the Docker Desktop Dashboard.**
+
+> Make sure you provide atleast _2 CPUs and 4GB Memory_ to the Docker Desktop VM. This isn't required when using WSL2.
+
+## Installing Istio
+
+Space Cloud requires [Istio](https://istio.io/docs/setup/getting-started/) to work correctly. The default Istio profile works perfectly well.
+
+Download the latest istio release:
+```bash
+curl -L https://istio.io/downloadIstio | sh -
+```
+
+> **Space Cloud has been tested with Istio versions `v1.8.X`, `v1.7.X` and `v1.6.X`.**
+
+Move to the Istio package directory and install Istio. For example, if the package is `istio-1.8.0`:
+```bash
+cd istio-1.8.0
+./bin/istioctl install --set profile=demo
+```
+
+For more detailed Istio install instructions, visit the [Istio Docs](https://istio.io/latest/docs/setup/install/istioctl/)
 
 ## Installing Space CLI
 
@@ -32,17 +79,9 @@ Unzip the compressed archive.
 
 **For Windows:** Right-click on the archive and select `extract here`.
 
-To make sure if the `space-cli` binary is correct, type the following command from the directory where you have downloaded `space-cli`:
-
-**For Linux / Mac:** `./space-cli --version`
-
-**For Windows:** `space-cli.exe --version`
-
-This prints the `space-cli` version.
-
 Copy the `space-cli` binary to your environment path variable for global usage.
 
-**For Linux / Mac:** Copy the `space-cli` to `usr/local/bin`. You may have to use `sudo` depending on the permissions of your `usr/local/bin`.
+**For Linux / Mac:** `sudo mv ./space-cli /usr/local/bin/space-cli`.
 
 **For Windows:** Add the path of the `space-cli.exe` to the environment variable `PATH` for making `space-cli` accessible globally.
 
@@ -51,47 +90,26 @@ Copy the `space-cli` binary to your environment path variable for global usage.
 We can set up all Space Cloud components using a single command.
 
 ```bash
-space-cli setup --dev
+space-cli setup
 ```
 
-The `setup` command selects `Docker` as a target by default and runs all the containers required to setup Space Cloud. On successful installation it generates an output similar to this one:
-
-```bash
-INFO[0000] Setting up Space Cloud on docker.            
-INFO[0000] Fetching latest Space Cloud Version         
-INFO[0000] Starting container space-cloud-gateway...    
-INFO[0000] Image spaceuptech/gateway:latest already exists. No need to pull it again 
-INFO[0000] Starting container space-cloud-runner...     
-INFO[0000] Image spaceuptech/runner:latest already exists. No need to pull it again 
-
-INFO[0001] Space Cloud (id: "local-admin") has been successfully setup! 👍 
-INFO[0001] You can visit mission control at http://localhost:4122/mission-control 💻 
-INFO[0001] Your login credentials: [username: "local-admin"; key: "KkYr6FvgYsvr"] 🤫
-```
-
-<!-- > **Note:** You can learn more about the `space-cli setup` command from [here]() link to the docs. -->
+> **For details on how to customise Space Cloud installation, visit the [customisation docs](https://docs.spaceuptech.com/install/kubernetes/configure).**
 
 ## Verify Installation
 
 Verify the installation run the following docker command:
 
 ```bash
-docker ps --filter=name=space-cloud
+kubectl get pods -n space-cloud -w
 ```
 
-You should see an output similar to this!
-
-```bash
-CONTAINER ID        IMAGE                        COMMAND             CREATED              STATUS              PORTS                                            NAMES
-507ce4042486        spaceuptech/runner:latest    "./app start"       About a minute ago   Up About a minute                                                    space-cloud-runner
-33a5a7a9be3a        spaceuptech/gateway:latest   "./app run"         About a minute ago   Up About a minute   0.0.0.0:4122->4122/tcp, 0.0.0.0:4126->4126/tcp   space-cloud-gateway
-```
-
-> **You can use the `space-cli start` command to restart these containers if they are stopped manually or by the reboot process of your machine.**
+All the pods shown should be in the running state.
 
 ## Creating your first project
 
 Now that we have got Space Cloud setup, we can open `Mission Control` (Space cloud's admin UI) on [http://localhost:4122/mission-control](http://localhost:4122/mission-control).
+
+If you are using Docker Desktop, open [http://localhost/mission-control](http://localhost/mission-control)
 
 A screen like this greets you:
 
