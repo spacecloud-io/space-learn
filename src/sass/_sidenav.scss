@@ -9,7 +9,7 @@
     }
     .sidenav-text-style {
       padding: 15px 0 15px 50px;
-      color: black;
+      color: $dark-color;
       font-style: normal;
       font-weight: 600;
       font-size: 18px !important;
@@ -21,7 +21,7 @@
     .sidenav-btn {
       margin: 24px 0 24px 32px;
       text-transform: none;
-      background-color: #ff6700;
+      background-color: $blue;
       border-radius: 5px;
       width: 60%;
       font-size: 14px;

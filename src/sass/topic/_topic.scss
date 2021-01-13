@@ -8,7 +8,7 @@
   .row-top {
     position: relative;
     top: 15vh;
-    margin-bottom: 550px;
+    margin-bottom: 280px;
 
     .col {
       padding: 0;
@@ -16,7 +16,7 @@
 
     .left-wrapper {
       width: 90%;
-      background-color: #002c39;
+      background-color: $dark-color;
       border-radius: 0 50px 50px 0;
       padding: 32px;
       position: relative;
@@ -34,7 +34,7 @@
       }
 
       .learn-react {
-        background-color: #ff6700;
+        background-color: $blue;
         font-weight: 700;
         text-transform: none;
         border-radius: 30px;
@@ -67,10 +67,10 @@
       }
 
       .start-now {
-        border: 2px solid #ff6700;
+        border: 2px solid $blue;
         border-radius: 8px;
         text-transform: none;
-        color: #ff6700;
+        color: $blue;
         font-size: 16px;
         margin: 16px 0;
       }
@@ -84,7 +84,7 @@
       position: relative;
       top: 15vh;
       padding: 48px;
-      color: #000;
+      color: $dark-color;
 
       .title {
         font-size: 22px;
@@ -95,7 +95,7 @@
       .timeline {
         margin-bottom: 40px;
         .border {
-          border-left: 3px solid #002c39;
+          border-left: 3px solid $dark-color;
           padding-bottom: 32px;
           cursor: pointer;
           .dots {
@@ -103,7 +103,7 @@
             height: 32px;
             border-radius: 50%;
             background-color: #eee;
-            border: 3px solid #002c39;
+            border: 3px solid $dark-color;
             position: relative;
             right: 18px;
             text-align: center;
@@ -113,9 +113,9 @@
             position: relative;
             top: -9.5vw;
             left: 40px;
-            color: #002c39;
+            color: $dark-color;
             a {
-              color: #002c39 !important;
+              color: $dark-color !important;
             }
             .timeline-title {
               font-size: 22px;
@@ -129,7 +129,7 @@
             }
             .timeline-desc {
               font-size: 14px;
-              color: #000;
+              color: $dark-color;
               width: 90%;
             }
             @media #{$large-and-up} {
@@ -140,11 +140,11 @@
         .border:hover {
           transition-delay: 1s;
           .dots {
-            border: 3px solid #ff6700;
-            color: #ff6700;
+            border: 3px solid $blue;
+            color: $blue;
           }
           .timeline-title {
-            color: #ff6700 !important;
+            color: $blue !important;
           }
         }
       }
@@ -157,7 +157,7 @@
           font-weight: 600;
         }
         a {
-          color: #ff6700;
+          color: $blue;
         }
       }
 

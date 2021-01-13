@@ -1,6 +1,6 @@
 .landing {
   .orange-bg {
-    background-color: #ff6700;
+    background-color: $blue;
     border-radius: 0 0 50px 50px;
     left: 2%;
     right: 2%;
@@ -10,7 +10,7 @@
     bottom: -15px;
   }
   .blue-bg {
-    background-color: #002c39;
+    background-color: $dark-color;
     border-radius: 0 0 50px 50px;
     position: relative;
     z-index: 1;
@@ -36,13 +36,13 @@
   }
 
   .content-position {
-    margin-bottom: 300px;
+    margin-bottom: 64px;
 
     .content-heading {
       font-size: 24px;
       font-weight: 600;
       margin: 60px 0 24px 0;
-      color: #000;
+      color: $dark-color;
       justify-content: center;
     }
   }
@@ -67,7 +67,7 @@
       }
     }
     .content-position {
-      margin-bottom: 220px;
+      margin-bottom: 84px;
 
       .content-heading {
         margin: 72px 0 32px 0;

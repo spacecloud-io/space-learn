@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: $poppins;
 }
 
 .discord {
@@ -16,5 +16,5 @@ body {
   position: fixed;
   bottom: 30px;
   cursor: pointer;
-  color: #002c39 !important;
+  color: $dark-color !important;
 }
