@@ -87,7 +87,7 @@
   .topbar-white-learn-l {
     font-size: 18px;
     padding-left: 16px;
-    border-left: 2px solid #000;
+    border-left: 2px solid $dark-color;
     color: $dark-color;
   }
 
@@ -110,6 +110,15 @@
       font-weight: 500;
       font-size: 16px;
       padding: 0px 24px 8px 24px;
+    }
+
+    .github-link{
+      background: none;
+    }
+
+    .navbar-text-style:hover{
+      color: $blue;
+      background: none;
     }
   }
 

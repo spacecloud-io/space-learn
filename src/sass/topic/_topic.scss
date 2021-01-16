@@ -3,6 +3,7 @@
     font-size: 28px;
     font-weight: 700;
     margin-top: 40px;
+    color: $dark-color;
   }
 
   .row-top {
@@ -84,7 +85,7 @@
       position: relative;
       top: 15vh;
       padding: 48px;
-      color: $dark-color;
+      color: $desc-color;
 
       .title {
         font-size: 22px;
@@ -103,7 +104,7 @@
             height: 32px;
             border-radius: 50%;
             background-color: #eee;
-            border: 3px solid $dark-color;
+            border: 3px solid $desc-color;
             position: relative;
             right: 18px;
             text-align: center;
@@ -113,9 +114,9 @@
             position: relative;
             top: -9.5vw;
             left: 40px;
-            color: $dark-color;
+            color: $desc-color;
             a {
-              color: $dark-color !important;
+              color: $desc-color !important;
             }
             .timeline-title {
               font-size: 22px;
@@ -129,7 +130,7 @@
             }
             .timeline-desc {
               font-size: 14px;
-              color: $dark-color;
+              color: $desc-color;
               width: 90%;
             }
             @media #{$large-and-up} {

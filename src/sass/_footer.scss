@@ -58,6 +58,14 @@
         line-height: 21px;
       }
     }
+
+    .btn-sec{
+      @media #{$medium-and-down}{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
     
     .subscribe-btn{
       height: auto;
