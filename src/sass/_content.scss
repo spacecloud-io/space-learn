@@ -1,5 +1,5 @@
 .content {
-  color: #002c39;
+  color: $desc-color;
   padding: 24px 24px 40px 24px;
   @media #{$large-and-up} {
     padding: 32px 48px 56px 48px;
@@ -11,11 +11,11 @@
     padding: 48px;
   }
   h1 {
-    font-family: "Raleway", sans-serif;
+    font-family: $poppins;
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 24px;
-    color: #1e1e1e;
+    color: $dark-color;
     font-size: 24px;
     line-height: 1.5;
 
@@ -28,9 +28,9 @@
   }
 
   h2 {
-    font-family: "Raleway", sans-serif;
+    font-family: $poppins;
     font-weight: 600;
-    color: #1e1e1e;
+    color: $desc-color;
     font-size: 20px;
     margin-top: 24px;
     margin-bottom: 24px;
@@ -43,9 +43,9 @@
   }
 
   h3 {
-    font-family: "Raleway", sans-serif;
+    font-family: $dark-color;
     font-weight: 600;
-    color: #1e1e1e;
+    color: $desc-color;
     font-size: 16px;
     margin-top: 24px;
     margin-bottom: 24px;
@@ -58,7 +58,7 @@
   }
 
   p {
-    color: #1e1e1e;
+    color: $desc-color;
     line-height: 1.7;
     font-size: 14px !important;
     margin-top: 12px;
@@ -147,7 +147,7 @@
   }
 
   q {
-    color: #ff6700;
+    color: $blue;
     font-size: 16px;
     font-style: italic;
     padding-bottom: 24px;

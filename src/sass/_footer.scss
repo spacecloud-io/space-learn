@@ -1,177 +1,235 @@
-.footer {
-  background-color: #002c39;
-  padding: 200px 10px 0px 10px;
-  position: relative;
-  .logo-img {
-    height: auto;
-    transform: translateX(-8px);
-    margin-bottom: 20px;
-    @media only screen and (min-width: 993px) {
-      margin-top: 20px;
+
+.footer-content{
+  
+  .footer-background{
+    background: $dark-color;
+    border-radius: 15px;
+    margin-bottom: 0;
+    @media #{$medium-and-down}{
+      padding: 16px;
     }
-  }
 
-  .row-footer {
-    position: relative;
-    top: 0px !important;
-  }
+    .footer-title{
+      color: #FFFFFF;
+      margin-top: 86px;
+      margin-bottom: 0;
+      text-align: center;
+      font-weight: 800 !important;
+      font-size: 42px !important;
+      line-height: 72px !important;
+      @media #{$medium-and-down}{
+        margin-top: 53px;
+        font-size: 22px !important;
+        line-height: 44px !important;
+      }
+    }
 
-  .address-wrapper {
-    .address {
-      display: block;
-      color: #fff;
+    .footer-description{
+      color: #FFFFFF;
+      margin-top: 51px;
+      margin-bottom: 56px;
+      font-weight: 500 !important;
+      font-size: 20px !important;
+      line-height: 40px !important;
+      text-align: center;
+      @media #{$medium-and-down}{
+        margin-top: 47px;
+        margin-bottom: 53px;
+        font-size: 14px !important;
+        line-height: 28px !important;
+      }
+    }
+
+    
+    .email-input{
+      background: #FFF;
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 27px;
+      letter-spacing: 0em;
+      text-align: left;
+      width: 100%;
+      @media #{$medium-and-down}{
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+
+    .btn-sec{
+      @media #{$medium-and-down}{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    
+    .subscribe-btn{
+      height: auto;
+      width: auto;
+      padding: 24px 42px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 27px;
+      letter-spacing: 0em;
+      text-align: center;
+      text-transform: uppercase;
+      background: #1D66FF;
+      border: 1px solid #1D66FF;
+      border-radius: 10px;
+      margin-left: 72px;
+      @media #{$medium-and-down}{
+        font-size: 14px;
+        line-height: 21px;
+        margin-top: 33px;
+        margin-left: 0;
+      }
+    }
+
+    .footer-divider{
+      margin-top: 100px;
+      margin-bottom: 60px;
+      border: 1px solid #ADACAC;
+      @media #{$medium-and-down}{
+        margin-top: 42px;
+        margin-bottom: 38px;
+      }
+    }
+
+    .footer-list-title{
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 27px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #ADACAC;
+      margin-bottom: 20px;
+      @media #{$medium-and-down}{
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+
+    .footer-list{
+      list-style-type: none;
+      padding-left: 0 !important;
+      @media #{$medium-and-down}{
+        height: 20%;
+      }
+    }
+
+    .footer-list-item{
       margin-bottom: 8px;
     }
-  }
-  .tertiary-header {
-    color: #fff;
-    font-family: "Raleway", sans-serif;
-    font-weight: 600;
-  }
-  .contact-wrapper {
-    .contact {
-      display: block;
-      margin-bottom: 16px;
-      color: #fff;
-      i {
-        transform: translate(0px, 6px);
-        margin-right: 16px;
+
+    .footer-list-item a{
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      @media #{$medium-and-down}{
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+
+    .copyright-text{
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 40px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #FFF;
+      margin-top: 74px;
+      margin-bottom: 25px;
+      @media #{$medium-and-down}{
+        margin-top: 62px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 28px;
       }
     }
   }
-  .connect-wrapper {
+  .loading-btn{
     display: flex;
-    margin-bottom: 20px;
-    a {
-      i {
-        font-size: 24px;
-        color: #fff;
-      }
-    }
-  }
-  .hr-div {
-    margin: 20px 0px 12px 0px;
-    height: 1px;
-    background: #9f9f9f;
-    @media only screen and (min-width: 993px) {
-      margin-bottom: 8px;
-      margin-top: 28px;
-    }
-  }
-  .copyright-text {
+    align-items: center;
+    border: 1px solid #1D66FF;
+    color: #fff !important;
+    font-size: 2px;
     text-align: center;
-    color: #fff;
-    line-height: 2;
-    margin-bottom: 20px;
-  }
-}
-
-.body-text {
-  color: #434c5e;
-  line-height: 1.7;
-  margin-bottom: 20px;
-
-  @media only screen and (min-width: 993px) {
-    margin-bottom: 30px;
-    line-height: 1.7;
-  }
-}
-
-.row {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-
-  // Clear floating children
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .col {
-    float: left;
+    text-decoration: none;
+    line-height: 0px;
     box-sizing: border-box;
-    padding: 0 1.5rem / 2;
-    min-height: 1px;
+    background-color: transparent;
+    outline: none;
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+    font-weight: 500;
+  }
 
-    &[class*="push-"],
-    &[class*="pull-"] {
-      position: relative;
-    }
+  .loading-active{
+    position: relative;
+    font-size: 0;
+    margin-left: 15px;
+    overflow: hidden;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border-left-color: #e4e4e4;
+    animation: rotate 1.4s ease-in-out 0.5s infinite;
+    cursor: none;
+  }
 
-    $i: 1;
-    @while $i <= 12 {
-      $perc: unquote((100 / (12 / $i)) + "%");
-      &.s#{$i} {
-        width: $perc;
-        @include reset-offset;
-      }
-      $i: $i + 1;
-    }
-
-    $i: 1;
-    @while $i <= 12 {
-      $perc: unquote((100 / (12 / $i)) + "%");
-      @include grid-classes("s", $i, $perc);
-      $i: $i + 1;
-    }
-
-    @media only screen and (min-width: 601px) {
-      $i: 1;
-      @while $i <= 12 {
-        $perc: unquote((100 / (12 / $i)) + "%");
-        &.m#{$i} {
-          width: $perc;
-          @include reset-offset;
-        }
-        $i: $i + 1;
-      }
-
-      $i: 1;
-      @while $i <= 12 {
-        $perc: unquote((100 / (12 / $i)) + "%");
-        @include grid-classes("m", $i, $perc);
-        $i: $i + 1;
+  @keyframes rotate {
+      0%{
+        transform: rotate(360deg);
       }
     }
 
-    @media only screen and (min-width: 993px) {
-      $i: 1;
-      @while $i <= 12 {
-        $perc: unquote((100 / (12 / $i)) + "%");
-        &.l#{$i} {
-          width: $perc;
-          @include reset-offset;
-        }
-        $i: $i + 1;
-      }
+  .loading-sucess, .loading-error{
+    position: relative;
+    background-color: #1D66FF;
+    animation: bounce 3s ease-in-out;
+    width: 25px;
+    height: 25px;
+  }
 
-      $i: 1;
-      @while $i <= 12 {
-        $perc: unquote((100 / (12 / $i)) + "%");
-        @include grid-classes("l", $i, $perc);
-        $i: $i + 1;
-      }
+  @keyframes bounce {
+    0%{
+    transform: scale(0.9);
     }
+  }
 
-    @media only screen and (min-width: 1201) {
-      $i: 1;
-      @while $i <= 12 {
-        $perc: unquote((100 / (12 / $i)) + "%");
-        &.xl#{$i} {
-          width: $perc;
-          @include reset-offset;
-        }
-        $i: $i + 1;
-      }
+  .loading-sucess:before, .loading-error:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2px;
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    line-height: 20px;
+  }
 
-      $i: 1;
-      @while $i <= 12 {
-        $perc: unquote((100 / (12 / $i)) + "%");
-        @include grid-classes("xl", $i, $perc);
-        $i: $i + 1;
-      }
-    }
+  .loading-sucess:before{
+    background: url(../images/check-solid.svg) no-repeat center center/cover;
+  }
+
+  .loading-error:before {
+    background: url(../images/cancel.svg) no-repeat center center/cover;
   }
 }

@@ -6,7 +6,7 @@
     font-weight: 500;
     font-size: 14px;
     a {
-      color: #000;
+      color: $desc-color;
     }
     .breadcrumb-icon {
       font-size: 18px;
@@ -34,23 +34,23 @@
       padding: 32px 8px 32px 18px;
       .selected {
         .dots {
-          color: #ff6700;
-          border: 1.5px solid #ff6700 !important;
+          color: $blue;
+          border: 1.5px solid $blue !important;
         }
         .point {
-          color: #ff6700 !important;
+          color: $blue !important;
         }
       }
       .timeline-border {
         display: flex;
-        border-left: 2px solid #002c39;
+        border-left: 2px solid $desc-color;
 
         .dots {
           width: 20px;
           height: 20px;
           border-radius: 50%;
           background-color: #eee;
-          border: 1.5px solid #002c39;
+          border: 1.5px solid $desc-color;
           text-align: center;
           position: relative;
           right: 12px;
@@ -62,7 +62,7 @@
           padding-bottom: 24px;
           font-size: 13px;
           font-weight: 500;
-          color: #002c39;
+          color: $desc-color;
           cursor: pointer;
         }
       }
@@ -90,10 +90,10 @@
         .on-this-page {
           font-weight: 600;
           margin-bottom: 8px;
-          color: #002c39;
+          color: $desc-color;
           font-size: 16px;
           a {
-            color: #002c39 !important;
+            color: $desc-color !important;
           }
         }
         .dropdown-content {
@@ -109,10 +109,10 @@
           li {
             list-style-type: square !important;
             float: none;
-            color: #002c39;
+            color: $desc-color;
           }
           a {
-            color: #002c39 !important;
+            color: $desc-color !important;
           }
         }
       }
@@ -120,7 +120,7 @@
         display: flex;
         a {
           cursor: pointer;
-          color: #000;
+          color: $desc-color;
         }
         .button1 {
           margin-right: 16px;
@@ -145,7 +145,7 @@
       }
       .buttons-l {
         a {
-          color: #000;
+          color: $desc-color;
           font-weight: 600;
           font-size: 16px;
           .previous {
@@ -169,7 +169,7 @@
             justify-content: flex-end;
           }
           .next-topic {
-            color: #ff6700;
+            color: $blue;
           }
         }
       }
@@ -178,7 +178,7 @@
     .right-wrapper {
       padding: 32px 16px;
       font-size: 16px;
-      color: #002c39;
+      color: $desc-color;
       nav {
         box-shadow: none;
         border: 0;
@@ -187,7 +187,7 @@
         height: auto;
         li {
           float: none;
-          color: #002c39;
+          color: $desc-color;
 
           ul {
             margin:8px 0 0 0 !important;
@@ -201,9 +201,9 @@
         }
       }
       .selected {
-        color: #ff6700 !important;
+        color: $blue !important;
         a {
-          color: #ff6700 !important;
+          color: $blue !important;
         }
       }
       .on-this-page {
@@ -211,7 +211,7 @@
         margin-bottom: 8px;
       }
       a {
-        color: #002c39;
+        color: $desc-color;
         font-size: 13px;
       }
     }

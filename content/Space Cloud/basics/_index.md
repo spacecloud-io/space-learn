@@ -6,5 +6,5 @@ draft: false
 cover:
 - "Get started with Space Cloud"
 - "Explore various SC modules"
-image: logo-up.png
+image: logo.svg
 ---

@@ -2,7 +2,7 @@
   margin: 0 24px;
   .card {
     margin-bottom: 32px;
-    color: #000;
+    color: $dark-color;
     padding: 24px;
     cursor: pointer;
 
@@ -15,8 +15,9 @@
     }
 
     .card-desc {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
+      color: $desc-color;
     }
 
     @media #{$large-and-up} {
@@ -27,7 +28,7 @@
         margin-bottom: 16px;
       }
       .card-desc {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }

@@ -1,7 +1,7 @@
 @import 'materialize';
+@import 'variable';
 @import 'guidelines';
 @import 'topbar';
-@import 'newsletter';
 @import 'footer';
 @import 'sidenav';
 @import 'content';
@@ -15,3 +15,8 @@
 
 //topic
 @import 'topic/topic'; 
+
+body{
+  font-family: $poppins;
+  color: $desc-color;
+}

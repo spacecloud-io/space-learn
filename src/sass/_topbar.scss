@@ -21,11 +21,11 @@
     color: #fff
   }
   .nav-wrapper {
-    background-color: #002c39;
+    background-color: $dark-color;
     box-shadow: none;
 
     .navbar-text-style {
-      color: #fff;
+      color: #FFF;
       font-style: normal;
       font-size: 18px;
       margin: 0px 22px 8px 22px;
@@ -33,14 +33,15 @@
     }
     .navbar-text-style:hover {
       background-color: transparent;
-      border-bottom: 2px solid #fff;
+      border-bottom: 2px solid $blue;
+      color: $blue;
       transition: all 3ms;
     }
   }
 
   .dehaze {
     font-size: 26px;
-    color: #fff;
+    color: $blue;
     cursor: pointer;
   }
 }
@@ -51,15 +52,17 @@
 
 .get-started-btn {
   text-transform: capitalize;
-  background-color: #ff6700;
+  background-color: $blue;
   border-radius: 5px;
   font-size: 14px;
   font-weight: 700;
+  margin-bottom: 10px;
   margin-left: 32px !important;
 }
 
 .get-started-btn:hover {
-  background: #ff6600;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: $blue;
 }
 
 @media #{$large-and-up} {
@@ -68,7 +71,8 @@
     line-height: 32px;
 
     #selected {
-      border-bottom: 2px solid #fff !important;
+      color: $blue;
+      border-bottom: 2px solid $blue !important;
     }
   }
 }
@@ -83,8 +87,8 @@
   .topbar-white-learn-l {
     font-size: 18px;
     padding-left: 16px;
-    border-left: 2px solid #000;
-    color: #000;
+    border-left: 2px solid $dark-color;
+    color: $dark-color;
   }
 
   .logo-s {
@@ -94,28 +98,37 @@
   .topbar-white-learn-s {
     font-size: 18px;
     font-weight: 600;
-    color: #000;
+    color: $dark-color;
   }
   .nav-wrapper {
     background-color: #fff;
     box-shadow: none;
 
     .navbar-text-style {
-      color: #000;
+      color: $dark-color;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
       padding: 0px 24px 8px 24px;
     }
+
+    .github-link{
+      background: none;
+    }
+
+    .navbar-text-style:hover{
+      color: $blue;
+      background: none;
+    }
   }
 
   .dehaze {
     font-size: 26px;
-    color: #000;
+    color: $blue;
     cursor: pointer;
   }
 
   #selected {
-    color: #ff6700;
+    color: $blue;
   }
 }
