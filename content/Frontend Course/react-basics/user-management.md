@@ -12,7 +12,7 @@ Till now we have our api initialised and a client object created. Now we'll be b
 
 So the first step is making a login function in the service class. Let's head over to the `service.js` file. Create an async `login` function which takes `username` and `password` as a parameter.
 
-Now inside the body, we'll simply call the signIn method on the `db` object. You can always refer to [the docs](https://spaceuptech.com/docs/user-management/signin) to understand how it works and stuff like that.
+Now inside the body, we'll simply call the signIn method on the `db` object. You can always refer to [the docs](https://space-cloud.io/docs/user-management/signin) to understand how it works and stuff like that.
 
 Call the `db.signIn()` function. Pass the `username` and `password` fields. This function returns a promise, so lets add an await in front of it and store the result in a variable. It will look something like this:
 

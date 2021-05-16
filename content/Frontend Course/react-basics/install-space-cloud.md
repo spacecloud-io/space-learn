@@ -12,7 +12,7 @@ There are three primary ways you can deploy Space Cloud. The recommended one is 
 
 The second one is deploying it via docker. The final one is manually downloading and deploying the binary on your machine. We'll be going with the manual route in this tutorial.
 
-> **Note:** If you have docker compose set up on your machine, you could probably refer to the [docker compose quickstart guide](https://spaceuptech.com/docs/quick-start/docker-compose) to skip the steps below.
+> **Note:** If you have docker compose set up on your machine, you could probably refer to the [docker compose quickstart guide](https://space-cloud.io/docs/quick-start/docker-compose) to skip the steps below.
 
 ## Downloading Space Cloud
 

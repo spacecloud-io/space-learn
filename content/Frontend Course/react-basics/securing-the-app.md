@@ -36,7 +36,7 @@ In a nutshell the following variables are available in the security rules:
 - **doc:** Present for insert operation. (The document(s) to be inserted)
 - **op:** "one | all" Present for all operations. `one` for `insertOne`, `findOne`, `updateOne` and `deleteOne` operations 
 
-You can read more about security rules from [the docs](https://spaceuptech.com/docs/security/overview).
+You can read more about security rules from [the docs](https://space-cloud.io/docs/security/overview).
 
 What we need is a simple `match` rule. We need to compare `args.auth.id` and `args.find.userId` in case of read, update and delete. In case of create, we'll need to match `args.auth.id` with `args.doc.userId`
 
@@ -139,5 +139,5 @@ We have successfully completed this course. Hopefully your app is working and th
 As next steps you can:
 
 - Join our [discord server](https://discord.gg/RkGjW93) to get in touch with us.
-- Checkout the other [courses](https://learn.spaceuptech.com) we have.
+- Checkout the other [courses](https://learn.space-cloud.io) we have.
 - Start making your own app.

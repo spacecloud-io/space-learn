@@ -30,7 +30,7 @@ $(document).ready(function () {
       $("#subscribe-btn").addClass("submit-request");
       $("#subscribe-btn").css({"cursor" : "not-allowed"});
       $("#loading").addClass("loading-active");
-      fetch("https://api.spaceuptech.com/v1/site/subscribe", {
+      fetch("https://api.space-cloud.io/v1/site/subscribe", {
         method: 'POST',
         body: JSON.stringify({ email: email.val(), tags: ["newsletter"] }),
         headers: { 'Content-Type': 'application/json' }

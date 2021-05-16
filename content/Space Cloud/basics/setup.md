@@ -94,7 +94,7 @@ We can set up all Space Cloud components using a single command.
 space-cli setup
 ```
 
-> **For details on how to customise Space Cloud installation, visit the [customisation docs](https://docs.spaceuptech.com/install/kubernetes/configure).**
+> **For details on how to customise Space Cloud installation, visit the [customisation docs](https://docs.space-cloud.io/install/kubernetes/configure).**
 
 ## Verify Installation
 
